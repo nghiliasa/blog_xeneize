@@ -1,0 +1,86 @@
+{% extends "blog/base.html" %}
+{% load static %}
+{% load i18n %}
+{% block contenedor %}
+
+    <nav class="navbar navbar-expand-xl fixed-top" style="background-color:#043d6e!important" id="mainNav">
+        <div class="container text-center">
+            <span>
+                <a class="navbar-brand js-scroll-trigger" href="{% url 'index' %}">
+                    <img class="img-fluid" src="{% static 'blog/assets/img/icono.png' %}" alt="Logo">
+                </a>
+            </span>
+            <span class="mt-2">
+                <a class="navbar-brand js-scroll-trigger" style="color:#f7bc00!important" href="{% url 'index' %}">
+                    {{ nombre_sitio }}
+                </a>
+            </span>
+            <button class="navbar-toggler navbar-toggler-right font-weight-bold rounded" style="background-color:#f7bc00!important;color:#00418b!important" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">Menú <i class="fas fa-star"></i></button>
+            <div class="collapse navbar-collapse" id="navbarResponsive">
+                <div class="container-fluid text-center">
+                    <ul class="navbar-nav ml-auto mr-auto">
+                        <li class="nav-item mx-0 mx-lg-1"><a class="nav-link rounded js-scroll-trigger mt-3 btn btn-default font-weight-bold" href="{% url 'index' %}#inicio">Inicio <i class="fas fa-star"></i></a>
+                        </li>
+                        <li class="nav-item mx-0 mx-lg-1"><a class="nav-link rounded js-scroll-trigger mt-3 btn btn-default font-weight-bold" href="{% url 'index' %}#un">Últimas Noticias</a>
+                        </li>
+                        {% if tyc_news %}
+                        <li class="nav-item mx-0 mx-lg-1"><a class="nav-link rounded js-scroll-trigger mt-3 btn btn-default font-weight-bold" href="{% url 'index' %}#tyc">TyC Sports</a>
+                        </li>
+                        {% endif %}
+                        {% if ole_news %}
+                        <li class="nav-item mx-0 mx-lg-1"><a class="nav-link rounded js-scroll-trigger mt-3 btn btn-default font-weight-bold" href="{% url 'index' %}#ole">Diario Olé</a>
+                        </li>
+                        {% endif %}
+                        {% if as_news %}
+                        <li class="nav-item mx-0 mx-lg-1"><a class="nav-link rounded js-scroll-trigger mt-3 btn btn-default font-weight-bold" href="{% url 'index' %}#as">AS Argentina</a>
+                        </li>
+                        {% endif %}
+                        {% if infobae_news %}
+                        <li class="nav-item mx-0 mx-lg-1"><a class="nav-link rounded js-scroll-trigger mt-3 btn btn-default font-weight-bold" href="{% url 'index' %}#infobae">Portal Infobae</a>
+                        </li>
+                        {% endif %}
+                        {% if ln_news %}
+                        <li class="nav-item mx-0 mx-lg-1"><a class="nav-link rounded js-scroll-trigger mt-3 btn btn-default font-weight-bold" href="{% url 'index' %}#ln">La Nación</a>
+                        </li>
+                        {% endif %}
+                        {% if bv_news %}
+                        <li class="nav-item mx-0 mx-lg-1"><a class="nav-link rounded js-scroll-trigger mt-3 btn btn-default font-weight-bold" href="{% url 'index' %}#bv">Bola Vip</a>
+                        </li>
+                        {% endif %}
+                        <li class="nav-item mx-0 mx-lg-1"><a class="nav-link rounded js-scroll-trigger mt-3 btn btn-default font-weight-bold" href="{% url 'index' %}#contact">Contacto <i class="fas fa-star"></i></a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </nav>
+    {% block contenedor2 %}{% endblock %}
+    <footer class="footer text-center" style="background-color:#043d6e!important" id="contact">
+        <div class="container">
+            <div class="row">
+                <!-- Footer Location-->
+                <div class="col-lg-4 mb-5 mb-lg-0">
+                    <h4 class="mb-4 text-center">Acerca</h4>
+                    <p class="pre-wrap lead mb-0 text-center">Blog Xeneize te trae las últimas noticias del más grande!!!</p>
+                </div>
+                <!-- Footer Social Icons-->
+                <div class="col-lg-4 mb-5 mb-lg-0">
+                    <h4 class="mb-4">Seguinos en las redes</h4><a class="btn btn-outline-light btn-social mx-1" href="https://es-la.facebook.com/" target="_blank"><i class="fab fa-fw fa-facebook" aria-hidden="true"></i></a><a class="btn btn-outline-light btn-social mx-1" href="https://www.instagram.com/?hl=es-la" target="_blank"><i class="fab fa-fw fa-instagram"></i></a><a class="btn btn-outline-light btn-social mx-1" href="https://twitter.com/" target="_blank"><i i class="fab fa-fw fa-twitter" aria-hidden="true"></i></a>
+                </div>
+                <!-- Footer About Text-->
+                <div class="col-lg-4">
+                    <h4 class="mb-4">Contacto</h4>
+                    <p class="pre-wrap lead mb-0 text-center">Autor: Nicolás Ghiliasa<br>Email: nghiliasa@gmail.com<br>LinkedIn: <a class="text-white" href="https://www.linkedin.com/in/nghiliasa/" target="_blank">Ir al perfil</a>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- Copyright Section-->
+    <section class="copyright py-4 text-center text-white" style="background-color:#043d6e!important">
+        <div class="container"><small class="pre-wrap">Copyright © BlogXeneize 2022 </small></div>
+    </section>
+    <!-- Scroll to Top Button (Only visible on small and extra-small screen sizes)-->
+    <div class="scroll-to-top d-lg-none position-fixed"><a class="js-scroll-trigger d-block text-center text-white rounded" href="#page-top"><i class="fa fa-chevron-up"></i></a></div>
+
+{% endblock %} 

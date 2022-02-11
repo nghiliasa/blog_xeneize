@@ -1,0 +1,31 @@
+{% extends "plantilla.html" %}
+{% block contenedor2 %}
+
+	<section class="page-section" style="background-color:#011251!important" id="contact">
+	    <div class="container">
+	        <!-- Contact Section Heading-->
+	        <div class="text-center" style="margin: 150px 0px 0px 0px !important;">
+	            <h2 class="page-section-heading text-white d-inline-block mb-0">Pedí tu peli</h2>
+	        </div>
+	        <!-- Icon Divider-->
+	        <div class="divider-custom divider-light">
+	            <div class="divider-custom-line"></div>
+	            <div class="divider-custom-icon"><i class="fa fa-film"></i></div>
+	            <div class="divider-custom-line"></div>
+	        </div>
+	        <!-- Contact Section Content-->
+	        <div class="row justify-content-center">
+	            <div class="col-lg-4">
+	                <div class="d-flex flex-column align-items-center">
+	                    <form class="text-white" id="search-form" enctype="multipart/form-data" action="{% url 'pedido' %}" method="post">{% csrf_token %}{{ form.as_p }}
+		                   <div class="col-xs-12">
+		                       <input class="btn btn-info" type="submit" id="boton_pedido" value="Enviar"/>
+		                   </div>
+		                </form>
+	                </div>
+	            </div>
+	        </div>
+	    </div>
+	</section>
+
+{% endblock %}

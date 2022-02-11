@@ -1,0 +1,1 @@
+web: gunicorn blog_xeneize.wsgi --log-file -

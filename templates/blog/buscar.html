@@ -1,0 +1,128 @@
+{% extends "plantilla.html" %}
+{% block contenedor2 %}
+
+	<section class="page-section" style="background-color:#011251!important" id="contact">
+	    <div class="container">
+	        <!-- Contact Section Heading-->
+	        <div class="text-center" style="margin: 150px 0px 0px 0px !important;">
+	            <h2 class="page-section-heading text-white d-inline-block mb-0">Buscar</h2>
+	        </div>
+	        <!-- Icon Divider-->
+	        <div class="divider-custom divider-light">
+	            <div class="divider-custom-line"></div>
+	            <div class="divider-custom-icon"><i class="fa fa-search"></i></div>
+	            <div class="divider-custom-line"></div>
+	        </div>
+	        <div class="row justify-content-center">
+				<div class="col-xs-12" id="filtros_productos">
+	              	<form class="text-white" id="search-form" action="" method="post">{% csrf_token %}
+	                  	<div class="d-flex align-items-center">
+	                      	{{ search }}
+	                      	<input class="btn btn-info ml-2" type="button" id="boton_prod" value="Buscar"/>
+	                  	</div>
+	               	</form>
+					<div class="portfolio">
+					    <div class="portfolio-item mx-auto" data-toggle="modal" data-target="#portfolioModal0">
+					        <div class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100">
+					            <div class="portfolio-item-caption-content text-center text-white" id="contenedor_filtrado">
+					            </div>
+					        </div>
+					        <div id="contenedor_filtrado2">
+					    	</div>
+					    	<p class="text-white mt-1 text-left" id="contenedor_filtrado3">
+					    	</p>
+					    </div>
+					</div>
+					<div class="portfolio-modal modal fade" id="portfolioModal0" tabindex="-1" role="dialog" aria-labelledby="#portfolioModal0Label" aria-hidden="true">
+					    <div class="modal-dialog modal-xl" role="document">
+					        <div class="modal-content">
+					            <button class="close" type="button" data-dismiss="modal" aria-label="Close"><span aria-hidden="true"><i class="text-light fas fa-times"></i></span></button>
+					            <div class="modal-body rounded bg-primary text-center" style="background-color:#011251!important">
+					                <div class="container">
+					                    <div class="row justify-content-center">
+					                        <div class="col-lg-10">
+					                            <!-- Portfolio Modal - Title-->
+					                            <h2 class="portfolio-modal-title text-white mb-0" id="titulo"></h2>
+					                            <!-- Icon Divider-->
+					                            <div class="divider-custom divider-light">
+					                                <div class="divider-custom-line"></div>
+					                                <div class="divider-custom-icon"><i class="fa fa-film"></i></div>
+					                                <div class="divider-custom-line"></div>
+					                            </div>
+					                            <div class="row">
+						                            <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-4 mb-3" id="imagen">
+						                        	</div>
+						                        	<div class="container-fluyd col-12 col-sm-12 col-md-12 col-lg-12 col-xl-8">
+						                        		<div class="row">
+						                        			<div class="col-12 bg-secondary text-left">
+								                            	<p class="h6 text-white pt-2">Título original</p>
+								                            </div>
+								                            <p class="col-12 text-left text-white pt-2" id="titulo_original"></p>
+								                            <div class="col-12 bg-secondary text-left">
+								                            	<p class="h6 text-white pt-2">País</p>
+								                            </div>
+								                            <p class="col-12 text-left text-white pt-2" id="pais"></p>
+								                            <div class="col-12 bg-secondary text-left">
+								                            	<p class="h6 text-white pt-2">Año</p>
+								                            </div>
+								                            <p class="col-12 text-left text-white pt-2" id="agno"></p>
+								                            <div class="col-12 bg-secondary text-left">
+								                            	<p class="h6 text-white pt-2">Género</p>
+								                            </div>
+								                            <p class="col-12 text-left text-white pt-2" id="genero"></p>
+								                            <div class="col-12 bg-secondary text-left">
+								                            	<p class="h6 text-white pt-2">Puntaje</p>
+								                            </div>
+								                            <p class="col-12 text-left text-white pt-2" id="puntaje"></p>
+								                            <div class="col-12 bg-secondary text-left">
+								                            	<p class="h6 text-white pt-2">Duración</p>
+								                            </div>
+								                            <p class="col-12 text-left text-white pt-2" id="duracion"></p>
+								                            <div class="col-12 bg-secondary text-left">
+								                            	<p class="h6 text-white pt-2">Director</p>
+								                            </div>
+								                            <p class="col-12 text-left text-white pt-2" id="director"></p>
+							                        	</div>
+						                        	</div>
+								                    <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 bg-secondary text-left">
+								                        <p class="h6 text-white pt-2">Reparto</p>
+								                    </div>
+								                    <p class="col-12 text-justify text-white pt-2" id="reparto"></p>
+								                    <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 bg-secondary text-left my-auto">
+								                        <p class="h6 text-white pt-2">Sinopsis</p>
+								                    </div>
+								                    <p class="col-12 text-justify text-white pt-2" id="sinopsis"></p>
+								                    <!-- Icon Divider-->
+						                            <div class="divider-custom divider-light">
+						                                <div class="divider-custom-line"></div>
+						                                <div class="divider-custom-icon"><i class="fa fa-film"></i></div>
+						                                <div class="divider-custom-line"></div>
+						                            </div>
+						                            <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 embed-responsive embed-responsive-16by9 mb-3" id="link">
+						                        	</div>
+					                        	</div>
+					                            <button class="btn btn-light" href="#" data-dismiss="modal"><i class="fas fa-times fa-fw"></i>Close Window</button>
+					                        </div>
+					                        </div>
+					                    </div>
+					                </div>
+					            </div>
+					        </div>
+					    </div>
+					</div>
+	          	</div>
+			</div>
+	    </div>
+	</section>
+
+	{% block scripts %}
+
+		<script type="text/javascript">
+         $( "#id_querycom" ).autocomplete({
+            source:"/search/"
+        });
+        </script>
+
+	{% endblock %}
+
+{% endblock %}

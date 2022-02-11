@@ -1,0 +1,137 @@
+{% extends "plantilla.html" %}
+{% load static %}
+{% block contenedor2 %}
+
+	<section class="page-section portfolio" style="background-color:#04275d!important" id="recomendadas">
+	    <div class="container">
+	        <!-- Portfolio Section Heading-->
+	        <div class="text-center" style="margin: 150px 0px 0px 0px !important;">
+	            <h2 class="page-section-heading text-white mb-0 d-inline-block">Recomendadas</h2>
+	        </div>
+	        <!-- Icon Divider-->
+	        <div class="divider-custom divider-light">
+	            <div class="divider-custom-line"></div>
+	            <div class="divider-custom-icon"><i class="fa fa-thumbs-up" aria-hidden="true"></i></div>
+	            <div class="divider-custom-line"></div>
+	        </div>
+	        <!-- Portfolio Grid Items-->
+	        <div class="row justify-content-center">
+	            <!-- Portfolio Items-->
+	            {% for i in publicaciones %}
+
+					{% if i.recomendada is True %}
+
+						<div class="col-md-6 col-lg-4 mb-4 d-flex align-items-center">
+						    <div class="portfolio-item mx-auto" data-toggle="modal" data-target="#portfolioModal{{i.id}}">
+						        <div class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100">
+						            <div class="portfolio-item-caption-content text-center text-white">
+						            	<i class="fa fa-play" aria-hidden="true"></i>
+						            </div>
+						        </div>
+						        <div>
+						        	<img class="img-fluid rounded border" src="{{i.imagen.url}}" alt="Imagen {{i.titulo}}"/>
+						    	</div>
+						    	<p class="text-white mt-1 text-left">
+						    		<em>{{i.titulo}} ({{i.agno}})</em>
+						    	</p>
+						    </div>
+						</div>
+
+					{% endif %}
+
+				{% endfor %}
+	        </div>
+	    </div>
+	</section>
+	<!-- Portfolio Modal-->
+	{% for i in publicaciones %}
+
+		{% if i.recomendada %}
+
+			<div class="portfolio-modal modal fade" id="portfolioModal{{i.id}}" tabindex="-1" role="dialog" aria-labelledby="#portfolioModal{{i.id}}Label" aria-hidden="true">
+			    <div class="modal-dialog modal-xl" role="document">
+			        <div class="modal-content">
+			            <button class="close" type="button" data-dismiss="modal" aria-label="Close"><span aria-hidden="true"><i class="text-light fas fa-times"></i></span></button>
+			            <div class="modal-body rounded bg-primary text-center" style="background-color:#011251!important">
+			                <div class="container">
+			                    <div class="row justify-content-center">
+			                        <div class="col-lg-10">
+			                            <!-- Portfolio Modal - Title-->
+			                            <h2 class="portfolio-modal-title text-white mb-0">{{i.titulo}}</h2>
+			                            <!-- Icon Divider-->
+			                            <div class="divider-custom divider-light">
+			                                <div class="divider-custom-line"></div>
+			                                <div class="divider-custom-icon"><i class="fa fa-film"></i></div>
+			                                <div class="divider-custom-line"></div>
+			                            </div>
+			                            <div class="row">
+				                            <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-4 mb-3">
+				                            	<!-- Portfolio Modal - Image-->
+				                            	<img class="img-fluid rounded border mb-2" src="{{i.imagen.url}}" alt="#"/>
+				                            	<!-- Portfolio Modal - Text-->
+				                        	</div>
+				                        	<div class="container-fluyd col-12 col-sm-12 col-md-12 col-lg-12 col-xl-8">
+				                        		<div class="row">
+				                        			<div class="col-12 bg-secondary text-left">
+						                            	<p class="h6 text-white pt-2">Título original</p>
+						                            </div>
+						                            <p class="col-12 text-left text-white pt-2">{{i.titulo_original}}</p>
+						                            <div class="col-12 bg-secondary text-left">
+						                            	<p class="h6 text-white pt-2">País</p>
+						                            </div>
+						                            <p class="col-12 text-left text-white pt-2">{{i.pais}}</p>
+						                            <div class="col-12 bg-secondary text-left">
+						                            	<p class="h6 text-white pt-2">Año</p>
+						                            </div>
+						                            <p class="col-12 text-left text-white pt-2">{{i.agno}}</p>
+						                            <div class="col-12 bg-secondary text-left">
+						                            	<p class="h6 text-white pt-2">Género</p>
+						                            </div>
+						                            <p class="col-12 text-left text-white pt-2">{{i.genero}}</p>
+						                            <div class="col-12 bg-secondary text-left">
+						                            	<p class="h6 text-white pt-2">Puntaje</p>
+						                            </div>
+						                            <p class="col-12 text-left text-white pt-2">{{i.puntaje}}</p>
+						                            <div class="col-12 bg-secondary text-left">
+						                            	<p class="h6 text-white pt-2">Duración</p>
+						                            </div>
+						                            <p class="col-12 text-left text-white pt-2">{{i.duracion}} minutos</p>
+						                            <div class="col-12 bg-secondary text-left">
+						                            	<p class="h6 text-white pt-2">Director</p>
+						                            </div>
+						                            <p class="col-12 text-left text-white pt-2">{{i.director}}</p>
+					                        	</div>
+				                        	</div>
+						                    <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 bg-secondary text-left">
+						                        <p class="h6 text-white pt-2">Reparto</p>
+						                    </div>
+						                    <p class="col-12 text-justify text-white pt-2">{{i.reparto}}</p>
+						                    <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 bg-secondary text-left my-auto">
+						                        <p class="h6 text-white pt-2">Sinopsis</p>
+						                    </div>
+						                    <p class="col-12 text-justify text-white pt-2">{{i.sinopsis}}</p>
+						                    <!-- Icon Divider-->
+				                            <div class="divider-custom divider-light">
+				                                <div class="divider-custom-line"></div>
+				                                <div class="divider-custom-icon"><i class="fa fa-film"></i></div>
+				                                <div class="divider-custom-line"></div>
+				                            </div>
+				                            <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 embed-responsive embed-responsive-16by9 mb-3">
+				                            	<IFRAME SRC="{{i.link}}" FRAMEBORDER=0 MARGINWIDTH=0 MARGINHEIGHT=0 SCROLLING=NO WIDTH=300 HEIGHT=200 allowfullscreen></IFRAME>
+				                        	</div>
+			                        	</div>
+			                            <button class="btn btn-light" href="#" data-dismiss="modal"><i class="fas fa-times fa-fw"></i>Close Window</button>
+			                        </div>
+			                        </div>
+			                    </div>
+			                </div>
+			            </div>
+			        </div>
+			    </div>
+			</div>
+
+		{% endif %}
+
+	{% endfor %}
+
+{% endblock %}

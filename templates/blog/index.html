@@ -1,0 +1,381 @@
+{% extends "blog/layout.html" %}
+{% load static %}
+{% block contenedor2 %}
+
+	<header class="masthead text-white text-center" style="background-image: url({% static 'blog/assets/img/background.png' %});margin: 0px 0px 0px 0px !important;background-position: center;background-repeat: no-repeat;-moz-background-size: cover;-o-background-size: cover;background-size: cover" id="inicio">
+	    <div class="container-fluyd mt-5 pb-5">
+	        <!-- Masthead Avatar Image-->
+	        <div class="container d-flex align-items-center flex-column pb-5">
+				<img class="img-fluid" src="{% static 'blog/assets/img/escudo.png' %}" alt="Logo">
+	            <!-- Masthead Heading-->
+	            <h1 class="text-white mt-2" style="text-shadow: 3px 3px #043d6e;color:#f7bc00!important">Blog Xeneize</h1>
+	            <!-- Icon Divider-->
+	            <div class="divider-custom divider-light pt-4">
+	                <div class="divider-custom-line"></div>
+	                <div class="divider-custom-icon"><i class="far fa-newspaper"></i></div>
+	                <div class="divider-custom-line"></div>
+	            </div>
+	            <!-- Masthead Subheading-->
+	            <h2 class="pre-wrap masthead-subheading font-weight-bold text-white" style="text-shadow: 3px 3px #000000">Últimas noticias de Boca Juniors</h2>
+	        </div>
+	    </div>
+	</header>
+	<section class="page-section portfolio" style="background-color:#00418b!important" id="un">
+	    <div class="container-fluid">
+			<!-- Portfolio Section Heading-->
+			<div class="text-center" style="margin: 70px 0px 0px 0px !important;">
+				<h2 class="page-section-heading mb-0 d-inline-block" style="color:#f7bc00!important">Últimas noticias</h2>
+			</div>
+			<!-- Icon Divider-->
+			<div class="divider-custom divider-light">
+				<div class="divider-custom-line"></div>
+				<div class="divider-custom-icon"><img class="img-fluid" src="{% static 'blog/assets/img/icono_thumb.png' %}" alt="Logo"></div>
+				<div class="divider-custom-line"></div>
+			</div>
+			<div class="row no-gutters">
+				<div class="col-sm-12 col-md-6 col-lg-6 col-xl-4 mr-auto mb-3 rounded-lg">
+					<div id="carousel1" class="carousel slide" data-ride="carousel" data-interval="10000">
+						<ol class="carousel-indicators">
+						{% for i in last_tyc_news %}
+						  <li data-target="#carousel1" data-slide-to="{{forloop.counter}}" {% if forloop.counter == 1 %}class="active"{% else %}{% endif %}></li>
+						{% endfor %}
+						</ol>
+						<div class="carousel-inner">
+						{% for i in last_tyc_news %}
+						  <div class="carousel-item {% if forloop.counter == 1 %}active{% else %}{% endif %}">
+							<div class="container-fluid">
+								<a href="{{i.news_link}}" target="_blank"><img class="img-fluid" style="width: 700px !important;height: 250px !important;" src="{{i.image}}" alt="{{forloop.counter}}"></a>
+								<div class="carousel-caption d-none d-block">
+									<h6 style="text-shadow: 2px 2px #000000">{{i.title}}</h5>
+									<p style="text-shadow: 2px 2px #000000">Fuente: {{i.source}}</p>
+								</div>
+							</div>
+						  </div>
+						{% endfor %}
+						</div>
+						<a class="carousel-control-prev" href="#carousel1" role="button" data-slide="prev">
+						  <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+						  <span class="sr-only">Previous</span>
+						</a>
+						<a class="carousel-control-next" href="#carousel1" role="button" data-slide="next">
+						  <span class="carousel-control-next-icon" aria-hidden="true"></span>
+						  <span class="sr-only">Next</span>
+						</a>
+					  </div>
+				</div>
+				<div class="col-sm-12 col-md-6 col-lg-6 col-xl-4 mr-auto mb-3 rounded-lg">
+					<div id="carousel2" class="carousel slide" data-ride="carousel" data-interval="10000">
+						<ol class="carousel-indicators">
+						{% for i in last_ole_news %}
+						  <li data-target="#carousel2" data-slide-to="{{forloop.counter}}" {% if forloop.counter == 1 %}class="active"{% else %}{% endif %}></li>
+						{% endfor %}
+						</ol>
+						<div class="carousel-inner">
+						{% for i in last_ole_news %}
+						  <div class="carousel-item {% if forloop.counter == 1 %}active{% else %}{% endif %}">
+							<div class="container-fluid">
+								<a href="{{i.news_link}}" target="_blank"><img class="img-fluid" style="width: 700px !important;height: 250px !important;" src="{{i.image}}" alt="{{forloop.counter}}"></a>
+								<div class="carousel-caption d-none d-block">
+									<h6 style="text-shadow: 2px 2px #000000">{{i.title}}</h5>
+									<p style="text-shadow: 2px 2px #000000">Fuente: {{i.source}}</p>
+								</div>
+							</div>
+						  </div>
+						{% endfor %}
+						</div>
+						<a class="carousel-control-prev" href="#carousel2" role="button" data-slide="prev">
+						  <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+						  <span class="sr-only">Previous</span>
+						</a>
+						<a class="carousel-control-next" href="#carousel2" role="button" data-slide="next">
+						  <span class="carousel-control-next-icon" aria-hidden="true"></span>
+						  <span class="sr-only">Next</span>
+						</a>
+					  </div>
+				</div>
+				<div class="col-sm-12 col-md-6 col-lg-6 col-xl-4 mr-auto mb-3 rounded-lg">
+					<div id="carousel3" class="carousel slide" data-ride="carousel" data-interval="10000">
+						<ol class="carousel-indicators">
+						{% for i in last_as_news %}
+						  <li data-target="#carousel3" data-slide-to="{{forloop.counter}}" {% if forloop.counter == 1 %}class="active"{% else %}{% endif %}></li>
+						{% endfor %}
+						</ol>
+						<div class="carousel-inner">
+						{% for i in last_as_news %}
+						  <div class="carousel-item {% if forloop.counter == 1 %}active{% else %}{% endif %}">
+							<div class="container-fluid">
+								<a href="{{i.news_link}}" target="_blank"><img class="img-fluid" style="width: 700px !important;height: 250px !important;" src="{{i.image}}" alt="{{forloop.counter}}"></a>
+								<div class="carousel-caption d-none d-block">
+									<h6 style="text-shadow: 2px 2px #000000">{{i.title}}</h5>
+									<p style="text-shadow: 2px 2px #000000">Fuente: {{i.source}}</p>
+								</div>
+							</div>
+						  </div>
+						{% endfor %}
+						</div>
+						<a class="carousel-control-prev" href="#carousel3" role="button" data-slide="prev">
+						  <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+						  <span class="sr-only">Previous</span>
+						</a>
+						<a class="carousel-control-next" href="#carousel3" role="button" data-slide="next">
+						  <span class="carousel-control-next-icon" aria-hidden="true"></span>
+						  <span class="sr-only">Next</span>
+						</a>
+					  </div>
+				</div>
+				<div class="col-sm-12 col-md-6 col-lg-6 col-xl-4 mr-auto mb-3 rounded-lg">
+					<div id="carousel4" class="carousel slide" data-ride="carousel" data-interval="10000">
+						<ol class="carousel-indicators">
+						{% for i in last_infobae_news %}
+						  <li data-target="#carousel4" data-slide-to="{{forloop.counter}}" {% if forloop.counter == 1 %}class="active"{% else %}{% endif %}></li>
+						{% endfor %}
+						</ol>
+						<div class="carousel-inner">
+						{% for i in last_infobae_news %}
+						  <div class="carousel-item {% if forloop.counter == 1 %}active{% else %}{% endif %}">
+							<div class="container-fluid">
+								<a href="{{i.news_link}}" target="_blank"><img class="img-fluid" style="width: 700px !important;height: 250px !important;" src="{{i.image}}" alt="{{forloop.counter}}"></a>
+								<div class="carousel-caption d-none d-block">
+									<h6 style="text-shadow: 2px 2px #000000">{{i.title}}</h5>
+									<p style="text-shadow: 2px 2px #000000">Fuente: {{i.source}}</p>
+								</div>
+							</div>
+						  </div>
+						{% endfor %}
+						</div>
+						<a class="carousel-control-prev" href="#carousel4" role="button" data-slide="prev">
+						  <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+						  <span class="sr-only">Previous</span>
+						</a>
+						<a class="carousel-control-next" href="#carousel4" role="button" data-slide="next">
+						  <span class="carousel-control-next-icon" aria-hidden="true"></span>
+						  <span class="sr-only">Next</span>
+						</a>
+					  </div>
+				</div>
+				<div class="col-sm-12 col-md-6 col-lg-6 col-xl-4 mr-auto mb-3 rounded-lg">
+					<div id="carousel5" class="carousel slide" data-ride="carousel" data-interval="10000">
+						<ol class="carousel-indicators">
+						{% for i in last_ln_news %}
+						  <li data-target="#carousel5" data-slide-to="{{forloop.counter}}" {% if forloop.counter == 1 %}class="active"{% else %}{% endif %}></li>
+						{% endfor %}
+						</ol>
+						<div class="carousel-inner">
+						{% for i in last_ln_news %}
+						  <div class="carousel-item {% if forloop.counter == 1 %}active{% else %}{% endif %}">
+							<div class="container-fluid">
+								<a href="{{i.news_link}}" target="_blank"><img class="img-fluid" style="width: 700px !important;height: 250px !important;" src="{{i.image}}" alt="{{forloop.counter}}"></a>
+								<div class="carousel-caption d-none d-block">
+									<h6 style="text-shadow: 2px 2px #000000">{{i.title}}</h5>
+									<p style="text-shadow: 2px 2px #000000">Fuente: {{i.source}}</p>
+								</div>
+							</div>
+						  </div>
+						{% endfor %}
+						</div>
+						<a class="carousel-control-prev" href="#carousel5" role="button" data-slide="prev">
+						  <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+						  <span class="sr-only">Previous</span>
+						</a>
+						<a class="carousel-control-next" href="#carousel5" role="button" data-slide="next">
+						  <span class="carousel-control-next-icon" aria-hidden="true"></span>
+						  <span class="sr-only">Next</span>
+						</a>
+					  </div>
+				</div>
+				<div class="col-sm-12 col-md-6 col-lg-6 col-xl-4 mr-auto mb-3 rounded-lg">
+					<div id="carousel6" class="carousel slide" data-ride="carousel" data-interval="10000">
+						<ol class="carousel-indicators">
+						{% for i in last_bv_news %}
+						  <li data-target="#carousel6" data-slide-to="{{forloop.counter}}" {% if forloop.counter == 1 %}class="active"{% else %}{% endif %}></li>
+						{% endfor %}
+						</ol>
+						<div class="carousel-inner">
+						{% for i in last_bv_news %}
+						  <div class="carousel-item {% if forloop.counter == 1 %}active{% else %}{% endif %}">
+							<div class="container-fluid">
+								<a href="{{i.news_link}}" target="_blank"><img class="img-fluid" style="width: 700px !important;height: 250px !important;" src="{{i.image}}" alt="{{forloop.counter}}"></a>
+								<div class="carousel-caption d-none d-block">
+									<h6 style="text-shadow: 2px 2px #000000">{{i.title}}</h5>
+									<p style="text-shadow: 2px 2px #000000">Fuente: {{i.source}}</p>
+								</div>
+							</div>
+						  </div>
+						{% endfor %}
+						</div>
+						<a class="carousel-control-prev" href="#carousel6" role="button" data-slide="prev">
+						  <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+						  <span class="sr-only">Previous</span>
+						</a>
+						<a class="carousel-control-next" href="#carousel6" role="button" data-slide="next">
+						  <span class="carousel-control-next-icon" aria-hidden="true"></span>
+						  <span class="sr-only">Next</span>
+						</a>
+					  </div>
+				</div>
+			</div>
+		</div>
+	</section>
+	{% if tyc_news %}
+	<section class="page-section portfolio" style="background-color:#00418b!important" id="tyc">
+	    <div class="container-fluid">
+	        <!-- Portfolio Section Heading-->
+	        <div class="text-center" style="margin: 70px 0px 0px 0px !important;">
+	            <h2 class="page-section-heading mb-0 d-inline-block" style="color:#f7bc00!important">{{tyc_title}}</h2>
+	        </div>
+	        <!-- Icon Divider-->
+	        <div class="divider-custom divider-light">
+	            <div class="divider-custom-line"></div>
+	            <div class="divider-custom-icon"><img class="img-fluid" src="{% static 'blog/assets/img/icono_thumb.png' %}" alt="Logo"></div>
+	            <div class="divider-custom-line"></div>
+	        </div>
+			<div class="row no-gutters">
+				{% for i in tyc_news %}
+				<div class="col-sm-12 col-md-6 col-lg-6 col-xl-3 mr-auto mb-3 rounded-lg" style="background-color:#043d6e;background-clip: padding-box;border: 5px solid transparent!important">
+					<a href="{{i.news_link}}" target="_blank"><img class="card-img-top" src="{{i.image}}" alt="Card image cap"></a>
+					<div class="card-body">
+					<h6 class="card-title"><a style="color:#f7bc00!important" href="{{i.news_link}}" target="_blank">{{i.title}}</a></h5>
+					<p class="card-text"><small class="text-muted" style="color:#ffffff!important">Fuente: {{i.source}}</small></p>
+					</div>
+				</div>
+				{% endfor %}
+			</div>
+	    </div>
+	</section>
+	{% endif %}
+	{% if ole_news %}
+	<section class="page-section portfolio" style="background-color:#00418b!important" id="ole">
+	    <div class="container-fluid">
+			<!-- Portfolio Section Heading-->
+	        <div class="text-center" style="margin: 70px 0px 0px 0px !important;">
+	            <h2 class="page-section-heading mb-0 d-inline-block" style="color:#f7bc00!important">{{ole_title}}</h2>
+	        </div>
+	        <!-- Icon Divider-->
+	        <div class="divider-custom divider-light">
+	            <div class="divider-custom-line"></div>
+	            <div class="divider-custom-icon"><img class="img-fluid" src="{% static 'blog/assets/img/icono_thumb.png' %}" alt="Logo"></div>
+	            <div class="divider-custom-line"></div>
+	        </div>
+	        <div class="row no-gutters">
+				{% for i in ole_news %}
+				<div class="col-sm-12 col-md-6 col-lg-6 col-xl-3 mr-auto mb-3 rounded-lg" style="background-color:#043d6e;background-clip: padding-box;border: 5px solid transparent!important">
+					<a href="{{i.news_link}}" target="_blank"><img class="card-img-top" src="{{i.image}}" alt="Card image cap"></a>
+					<div class="card-body">
+						<h6 class="card-title"><a style="color:#f7bc00!important" href="{{i.news_link}}" target="_blank">{{i.title}}</a></h5>
+							<p class="card-text"><small class="text-muted" style="color:#ffffff!important">Fuente: {{i.source}}</small></p>
+					</div>
+				</div>
+				{% endfor %}
+			</div>
+		</div>
+	</section>
+	{% endif %}
+	{% if as_news %}
+	<section class="page-section portfolio" style="background-color:#00418b!important" id="as">
+	    <div class="container-fluid">
+			<!-- Portfolio Section Heading-->
+			<div class="text-center" style="margin: 70px 0px 0px 0px !important;">
+				<h2 class="page-section-heading mb-0 d-inline-block" style="color:#f7bc00!important">{{as_title}}</h2>
+			</div>
+			<!-- Icon Divider-->
+			<div class="divider-custom divider-light">
+				<div class="divider-custom-line"></div>
+				<div class="divider-custom-icon"><img class="img-fluid" src="{% static 'blog/assets/img/icono_thumb.png' %}" alt="Logo"></div>
+				<div class="divider-custom-line"></div>
+			</div>
+			<div class="row no-gutters">
+				{% for i in as_news %}
+				<div class="col-sm-12 col-md-6 col-lg-6 col-xl-3 mr-auto mb-3 rounded-lg" style="background-color:#043d6e;background-clip: padding-box;border: 5px solid transparent!important">
+					<a href="{{i.news_link}}" target="_blank"><img class="card-img-top" src="{{i.image}}" alt="Card image cap"></a>
+					<div class="card-body">
+						<h6 class="card-title"><a style="color:#f7bc00!important" href="{{i.news_link}}" target="_blank">{{i.title}}</a></h5>
+							<p class="card-text"><small class="text-muted" style="color:#ffffff!important">Fuente: {{i.source}}</small></p>
+					</div>
+				</div>
+				{% endfor %}
+			</div>
+		</div>
+	</section>
+	{% endif %}
+	{% if infobae_news %}
+	<section class="page-section portfolio" style="background-color:#00418b!important" id="infobae">
+	    <div class="container-fluid">
+			<!-- Portfolio Section Heading-->
+			<div class="text-center" style="margin: 70px 0px 0px 0px !important;">
+				<h2 class="page-section-heading mb-0 d-inline-block" style="color:#f7bc00!important">{{infobae_title}}</h2>
+			</div>
+			<!-- Icon Divider-->
+			<div class="divider-custom divider-light">
+				<div class="divider-custom-line"></div>
+				<div class="divider-custom-icon"><img class="img-fluid" src="{% static 'blog/assets/img/icono_thumb.png' %}" alt="Logo"></div>
+				<div class="divider-custom-line"></div>
+			</div>
+			<div class="row no-gutters">
+				{% for i in infobae_news %}
+				<div class="col-sm-12 col-md-6 col-lg-6 col-xl-3 mr-auto mb-3 rounded-lg" style="background-color:#043d6e;background-clip: padding-box;border: 5px solid transparent!important">
+					<a href="{{i.news_link}}" target="_blank"><img class="card-img-top" src="{{i.image}}" alt="Card image cap"></a>
+					<div class="card-body">
+						<h6 class="card-title"><a style="color:#f7bc00!important" href="{{i.news_link}}" target="_blank">{{i.title}}</a></h5>
+							<p class="card-text"><small class="text-muted" style="color:#ffffff!important">Fuente: {{i.source}}</small></p>
+					</div>
+				</div>
+				{% endfor %}
+			</div>
+		</div>
+	</section>
+	{% endif %}
+	{% if ln_news %}
+	<section class="page-section portfolio" style="background-color:#00418b!important" id="ln">
+	    <div class="container-fluid">
+			<!-- Portfolio Section Heading-->
+			<div class="text-center" style="margin: 70px 0px 0px 0px !important;">
+				<h2 class="page-section-heading mb-0 d-inline-block" style="color:#f7bc00!important">{{ln_title}}</h2>
+			</div>
+			<!-- Icon Divider-->
+			<div class="divider-custom divider-light">
+				<div class="divider-custom-line"></div>
+				<div class="divider-custom-icon"><img class="img-fluid" src="{% static 'blog/assets/img/icono_thumb.png' %}" alt="Logo"></div>
+				<div class="divider-custom-line"></div>
+			</div>
+			<div class="row no-gutters">
+				{% for i in ln_news %}
+				<div class="col-sm-12 col-md-6 col-lg-6 col-xl-3 mr-auto mb-3 rounded-lg" style="background-color:#043d6e;background-clip: padding-box;border: 5px solid transparent!important">
+					<a href="{{i.news_link}}" target="_blank"><img class="card-img-top" src="{{i.image}}" alt="Card image cap"></a>
+					<div class="card-body">
+						<h6 class="card-title"><a style="color:#f7bc00!important" href="{{i.news_link}}" target="_blank">{{i.title}}</a></h5>
+							<p class="card-text"><small class="text-muted" style="color:#ffffff!important">Fuente: {{i.source}}</small></p>
+					</div>
+				</div>
+				{% endfor %}
+			</div>
+		</div>
+	</section>
+	{% endif %}
+	{% if bv_news %}
+	<section class="page-section portfolio" style="background-color:#00418b!important" id="bv">
+	    <div class="container-fluid">
+			<!-- Portfolio Section Heading-->
+			<div class="text-center" style="margin: 70px 0px 0px 0px !important;">
+				<h2 class="page-section-heading mb-0 d-inline-block" style="color:#f7bc00!important">{{bv_title}}</h2>
+			</div>
+			<!-- Icon Divider-->
+			<div class="divider-custom divider-light">
+				<div class="divider-custom-line"></div>
+				<div class="divider-custom-icon"><img class="img-fluid" src="{% static 'blog/assets/img/icono_thumb.png' %}" alt="Logo"></div>
+				<div class="divider-custom-line"></div>
+			</div>
+			<div class="row no-gutters">
+				{% for i in bv_news %}
+				<div class="col-sm-12 col-md-6 col-lg-6 col-xl-3 mr-auto mb-3 rounded-lg" style="background-color:#043d6e;background-clip: padding-box;border: 5px solid transparent!important">
+					<a href="{{i.news_link}}" target="_blank"><img class="card-img-top" src="{{i.image}}" alt="Card image cap"></a>
+					<div class="card-body">
+						<h6 class="card-title"><a style="color:#f7bc00!important" href="{{i.news_link}}" target="_blank">{{i.title}}</a></h5>
+							<p class="card-text"><small class="text-muted" style="color:#ffffff!important">Fuente: {{i.source}}</small></p>
+					</div>
+				</div>
+				{% endfor %}
+			</div>
+		</div>
+	</section>
+	{% endif %}
+{% endblock %}
