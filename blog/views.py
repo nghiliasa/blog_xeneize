@@ -4,6 +4,7 @@ from django.template import RequestContext, loader
 from django.views.generic import View
 from django.http import Http404
 from bs4 import BeautifulSoup
+from collections import OrderedDict
 import requests
 import cfscrape
 import random
@@ -58,7 +59,22 @@ def index(request):
         ole = 'https://www.ole.com.ar/boca-juniors/'
         ole_page = requests.get(ole)
         ole_soup = BeautifulSoup(ole_page.content, 'html.parser')
-        ole_articles = ole_soup.find_all('article')
+        ole_articles_base_1 = ole_soup.find_all('div', 'bb-tu first-t col col_4')
+        ole_articles_base_2 = ole_soup.find_all('div', 'bb-tu col col_4')
+        ole_articles_base_3 = ole_soup.find_all('div', 'bb-tu first-t col col_8')[0].find_all('article')
+        ole_articles_1 = []
+        ole_articles_2 = []
+        ole_articles_3 = []
+        for i in ole_articles_base_1:
+            articles = i.find_all('article', 'entry entry-box modNot-33')
+            for x in articles:
+                ole_articles_1.append(x)
+        for i in ole_articles_base_2:
+            articles = i.find_all('article', 'entry entry-box modNot-33')
+            for x in articles:
+                ole_articles_2.append(x)
+        
+        ole_articles = ole_articles_1 + ole_articles_2 + ole_articles_base_3
         ole_clock = 1
         for article in ole_articles:
             news = {}
