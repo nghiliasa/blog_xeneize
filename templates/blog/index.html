@@ -33,6 +33,7 @@
 				<div class="divider-custom-line"></div>
 			</div>
 			<div class="row no-gutters">
+				{% if last_tyc_news %}
 				<div class="col-sm-12 col-md-6 col-lg-6 col-xl-4 mr-auto mb-3 rounded-lg">
 					<div id="carousel1" class="carousel slide" data-ride="carousel" data-interval="10000">
 						<ol class="carousel-indicators">
@@ -63,6 +64,8 @@
 						</a>
 					  </div>
 				</div>
+				{% endif %}
+				{% if last_ole_news %}
 				<div class="col-sm-12 col-md-6 col-lg-6 col-xl-4 mr-auto mb-3 rounded-lg">
 					<div id="carousel2" class="carousel slide" data-ride="carousel" data-interval="10000">
 						<ol class="carousel-indicators">
@@ -91,8 +94,10 @@
 						  <span class="carousel-control-next-icon" aria-hidden="true"></span>
 						  <span class="sr-only">Next</span>
 						</a>
-					  </div>
+					</div>
 				</div>
+				{% endif %}
+				{% if last_as_news %}
 				<div class="col-sm-12 col-md-6 col-lg-6 col-xl-4 mr-auto mb-3 rounded-lg">
 					<div id="carousel3" class="carousel slide" data-ride="carousel" data-interval="10000">
 						<ol class="carousel-indicators">
@@ -121,8 +126,10 @@
 						  <span class="carousel-control-next-icon" aria-hidden="true"></span>
 						  <span class="sr-only">Next</span>
 						</a>
-					  </div>
+					</div>
 				</div>
+				{% endif %}
+				{% if last_infobae_news %}
 				<div class="col-sm-12 col-md-6 col-lg-6 col-xl-4 mr-auto mb-3 rounded-lg">
 					<div id="carousel4" class="carousel slide" data-ride="carousel" data-interval="10000">
 						<ol class="carousel-indicators">
@@ -151,8 +158,10 @@
 						  <span class="carousel-control-next-icon" aria-hidden="true"></span>
 						  <span class="sr-only">Next</span>
 						</a>
-					  </div>
+					</div>
 				</div>
+				{% endif %}
+				{% if last_ln_news %}
 				<div class="col-sm-12 col-md-6 col-lg-6 col-xl-4 mr-auto mb-3 rounded-lg">
 					<div id="carousel5" class="carousel slide" data-ride="carousel" data-interval="10000">
 						<ol class="carousel-indicators">
@@ -181,8 +190,10 @@
 						  <span class="carousel-control-next-icon" aria-hidden="true"></span>
 						  <span class="sr-only">Next</span>
 						</a>
-					  </div>
+					</div>
 				</div>
+				{% endif %}
+				{% if last_bv_news %}
 				<div class="col-sm-12 col-md-6 col-lg-6 col-xl-4 mr-auto mb-3 rounded-lg">
 					<div id="carousel6" class="carousel slide" data-ride="carousel" data-interval="10000">
 						<ol class="carousel-indicators">
@@ -211,8 +222,9 @@
 						  <span class="carousel-control-next-icon" aria-hidden="true"></span>
 						  <span class="sr-only">Next</span>
 						</a>
-					  </div>
+					</div>
 				</div>
+				{% endif %}
 			</div>
 		</div>
 	</section>

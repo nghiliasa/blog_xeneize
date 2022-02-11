@@ -178,50 +178,72 @@ def index(request):
     except:
         pass
 
-    # ----------------------- Fuente Goal ----------------------------
+    # ----------------------- Últimas noticias ----------------------------
+    last_tyc_news = []
+    
+    try:
+        last_tyc_news.append(tyc_news[0])
+        last_tyc_news.append(tyc_news[1])
+        last_tyc_news.append(tyc_news[2])
+        last_tyc_news.append(tyc_news[3])
+        last_tyc_news.append(tyc_news[4])
+    except:
+        pass
 
-    last_tyc_news = [
-        tyc_news[0],
-        tyc_news[1],
-        tyc_news[2],
-        tyc_news[3],
-        tyc_news[4],
-    ]
-    last_ole_news = [
-        ole_news[0],
-        ole_news[1],
-        ole_news[2],
-        ole_news[3],
-        ole_news[4],
-    ]
-    last_as_news = [
-        as_news[0],
-        as_news[1],
-        as_news[2],
-        as_news[3],
-        as_news[4],
-    ]
-    last_infobae_news = [
-        infobae_news[0],
-        infobae_news[1],
-        infobae_news[2],
-        infobae_news[3],
-        infobae_news[4],
-    ]
-    last_ln_news = [
-        ln_news[0],
-        ln_news[1],
-        ln_news[2],
-        ln_news[3],
-        ln_news[4],
-    ]
-    last_bv_news = [
-        bv_news[0],
-        bv_news[1],
-        bv_news[2],
-        bv_news[3],
-        bv_news[4],
-    ]
+    last_ole_news = []
+    
+    try:
+        last_ole_news.append(ole_news[0])
+        last_ole_news.append(ole_news[1])
+        last_ole_news.append(ole_news[2])
+        last_ole_news.append(ole_news[3])
+        last_ole_news.append(ole_news[4])
+    except:
+        pass
+
+    last_as_news = []
+    
+    try:
+        last_as_news.append(as_news[0])
+        last_as_news.append(as_news[1])
+        last_as_news.append(as_news[2])
+        last_as_news.append(as_news[3])
+        last_as_news.append(as_news[4])
+    except:
+        pass
+
+    last_infobae_news = []
+    
+    try:
+        last_infobae_news.append(infobae_news[0])
+        last_infobae_news.append(infobae_news[1])
+        last_infobae_news.append(infobae_news[2])
+        last_infobae_news.append(infobae_news[3])
+        last_infobae_news.append(infobae_news[4])
+    except:
+        pass
+
+    last_ln_news = []
+    
+    try:
+        last_ln_news.append(ln_news[0])
+        last_ln_news.append(ln_news[1])
+        last_ln_news.append(ln_news[2])
+        last_ln_news.append(ln_news[3])
+        last_ln_news.append(ln_news[4])
+    except:
+        pass
+
+    last_bv_news = []
+    
+    try:
+        last_bv_news.append(bv_news[0])
+        last_bv_news.append(bv_news[1])
+        last_bv_news.append(bv_news[2])
+        last_bv_news.append(bv_news[3])
+        last_bv_news.append(bv_news[4])
+    except:
+        pass
 
     # ----------------------- Fuente Fútbol Libre ----------------------------
 
@@ -229,7 +251,7 @@ def index(request):
     pr_page = requests.get(pr_link)
     pr_soup = BeautifulSoup(pr_page.content, 'html.parser')
     pr_table = pr_soup.find_all('table', 'tablesorter1')[0]
-    filas = pr_table.find_next('img')['src'] = 'https://www.promiedos.com.ar/' + pr_table.find('img')['src']
+    filas = pr_table.find('img')['src'] = 'https://www.promiedos.com.ar/' + pr_table.find('img')['src']
     print(filas)
     pr_clock = 1
     contenido = {
