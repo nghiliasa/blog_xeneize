@@ -261,15 +261,6 @@ def index(request):
     except:
         pass
 
-    # ----------------------- Fuente Fútbol Libre ----------------------------
-
-    pr_link = 'https://www.promiedos.com.ar/primera'
-    pr_page = requests.get(pr_link)
-    pr_soup = BeautifulSoup(pr_page.content, 'html.parser')
-    pr_table = pr_soup.find_all('table', 'tablesorter1')[0]
-    filas = pr_table.find('img')['src'] = 'https://www.promiedos.com.ar/' + pr_table.find('img')['src']
-    print(filas)
-    pr_clock = 1
     contenido = {
         "nombre_sitio": "Blog Xeneize", 
         "tyc_news": tyc_news,
