@@ -281,6 +281,5 @@ def index(request):
         "last_infobae_news": last_infobae_news,
         "last_ln_news": last_ln_news,
         "last_bv_news": last_bv_news,
-        "pr_table": str(pr_table),
         }
     return render(request, "blog/index.html", contenido)
