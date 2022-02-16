@@ -3,7 +3,7 @@
 {% load i18n %}
 {% block contenedor %}
 
-    <nav class="navbar navbar-expand-xl fixed-top" style="background-color:#043d6e!important" id="mainNav">
+    <nav class="navbar navbar-expand-xl fixed-top pb-4" style="background-color:#043d6e!important" id="mainNav">
         <div class="container text-center">
             <span>
                 <a class="navbar-brand js-scroll-trigger" href="{% url 'index' %}">
@@ -17,39 +17,41 @@
             </span>
             <button class="navbar-toggler navbar-toggler-right font-weight-bold rounded" style="background-color:#f7bc00!important;color:#00418b!important" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">Menú <i class="fas fa-star"></i></button>
             <div class="collapse navbar-collapse" id="navbarResponsive">
-                <div class="container-fluid text-center">
-                    <ul class="navbar-nav ml-auto mr-auto">
-                        <li class="nav-item mx-0 mx-lg-1"><a class="nav-link rounded js-scroll-trigger mt-3 btn btn-default font-weight-bold" href="#inicio">Inicio <i class="fas fa-star"></i></a>
-                        </li>
-                        <li class="nav-item mx-0 mx-lg-1"><a class="nav-link rounded js-scroll-trigger mt-3 btn btn-default font-weight-bold" href="#un">Últimas Noticias</a>
-                        </li>
-                        {% if tyc_news %}
-                        <li class="nav-item mx-0 mx-lg-1"><a class="nav-link rounded js-scroll-trigger mt-3 btn btn-default font-weight-bold" href="#tyc">TyC Sports</a>
-                        </li>
-                        {% endif %}
-                        {% if ole_news %}
-                        <li class="nav-item mx-0 mx-lg-1"><a class="nav-link rounded js-scroll-trigger mt-3 btn btn-default font-weight-bold" href="#ole">Diario Olé</a>
-                        </li>
-                        {% endif %}
-                        {% if as_news %}
-                        <li class="nav-item mx-0 mx-lg-1"><a class="nav-link rounded js-scroll-trigger mt-3 btn btn-default font-weight-bold" href="#as">AS Argentina</a>
-                        </li>
-                        {% endif %}
-                        {% if infobae_news %}
-                        <li class="nav-item mx-0 mx-lg-1"><a class="nav-link rounded js-scroll-trigger mt-3 btn btn-default font-weight-bold" href="#infobae">Portal Infobae</a>
-                        </li>
-                        {% endif %}
-                        {% if ln_news %}
-                        <li class="nav-item mx-0 mx-lg-1"><a class="nav-link rounded js-scroll-trigger mt-3 btn btn-default font-weight-bold" href="#ln">La Nación</a>
-                        </li>
-                        {% endif %}
-                        {% if bv_news %}
-                        <li class="nav-item mx-0 mx-lg-1"><a class="nav-link rounded js-scroll-trigger mt-3 btn btn-default font-weight-bold" href="#bv">Bola Vip</a>
-                        </li>
-                        {% endif %}
-                        <li class="nav-item mx-0 mx-lg-1"><a class="nav-link rounded js-scroll-trigger mt-3 btn btn-default font-weight-bold" href="#contact">Contacto <i class="fas fa-star"></i></a>
-                        </li>
-                    </ul>
+                <div class="container-fluid">
+                    <div class="container text-center">
+                        <ul class="navbar-nav ml-auto mr-auto mb-auto">
+                            <li class="nav-item mx-0 mx-lg-1"><a class="nav-link rounded js-scroll-trigger mt-3 btn btn-sm btn-default font-weight-bold" href="#inicio">Inicio <i class="fas fa-star"></i></a>
+                            </li>
+                            <li class="nav-item mx-0 mx-lg-1"><a class="nav-link rounded js-scroll-trigger mt-3 btn btn-sm btn-default font-weight-bold" href="#un">Últimas Noticias</a>
+                            </li>
+                            {% if tyc_news %}
+                            <li class="nav-item mx-0 mx-lg-1"><a class="nav-link rounded js-scroll-trigger mt-3 btn btn-sm btn-default font-weight-bold" href="#tyc">TyC Sports</a>
+                            </li>
+                            {% endif %}
+                            {% if ole_news %}
+                            <li class="nav-item mx-0 mx-lg-1"><a class="nav-link rounded js-scroll-trigger mt-3 btn btn-sm btn-default font-weight-bold" href="#ole">Diario Olé</a>
+                            </li>
+                            {% endif %}
+                            {% if as_news %}
+                            <li class="nav-item mx-0 mx-lg-1"><a class="nav-link rounded js-scroll-trigger mt-3 btn btn-sm btn-default font-weight-bold" href="#as">AS Argentina</a>
+                            </li>
+                            {% endif %}
+                            {% if infobae_news %}
+                            <li class="nav-item mx-0 mx-lg-1"><a class="nav-link rounded js-scroll-trigger mt-3 btn btn-sm btn-default font-weight-bold" href="#infobae">Portal Infobae</a>
+                            </li>
+                            {% endif %}
+                            {% if ln_news %}
+                            <li class="nav-item mx-0 mx-lg-1"><a class="nav-link rounded js-scroll-trigger mt-3 btn btn-sm btn-default font-weight-bold" href="#ln">La Nación</a>
+                            </li>
+                            {% endif %}
+                            {% if bv_news %}
+                            <li class="nav-item mx-0 mx-lg-1"><a class="nav-link rounded js-scroll-trigger mt-3 btn btn-sm btn-default font-weight-bold" href="#bv">Bola Vip</a>
+                            </li>
+                            {% endif %}
+                            <li class="nav-item mx-0 mx-lg-1"><a class="nav-link rounded js-scroll-trigger mt-3 btn btn-sm btn-default font-weight-bold" href="#contact">Contacto <i class="fas fa-star"></i></a>
+                            </li>
+                        </ul>
+                    </div>
                 </div>
             </div>
         </div>
