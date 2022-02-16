@@ -5,11 +5,35 @@ from django.views.generic import View
 from django.http import Http404
 from bs4 import BeautifulSoup
 from collections import OrderedDict
+import xml.etree.ElementTree as ET
 import requests
 import cfscrape
 import random
 import urllib
 import json
+
+def youtube(origin, id):
+    urlvideo = 'https://www.youtube.com/feeds/videos.xml?{}={}'.format(origin, id)
+    query = requests.get(urlvideo, headers={ "User-Agent": "Chrome/50.0.2661.94" })
+    data = query.content
+    root = ET.fromstring(data.decode())
+    channel_title = root.find('.//{http://www.w3.org/2005/Atom}title').text
+    channel_link = root.findall('.//{http://www.w3.org/2005/Atom}link')[1].get('href')
+    videos_content = root.findall('.//{http://www.w3.org/2005/Atom}entry')
+    videos = []
+    for item in videos_content:
+        video = {
+            'title': item.find('.//{http://www.w3.org/2005/Atom}title').text,
+            'embed': 'https://www.youtube.com/embed/' + item.find('.//{http://www.w3.org/2005/Atom}link').get('href').split('watch?v=')[1],
+            'link': item.find('.//{http://www.w3.org/2005/Atom}link').get('href'),
+            'thumb': item.find('.//{http://search.yahoo.com/mrss/}thumbnail').get('url'),
+            'views': item.find('.//{http://search.yahoo.com/mrss/}statistics').get('views'),
+            'likes': item.find('.//{http://search.yahoo.com/mrss/}starRating').get('count'),
+            'channel_title': channel_title,
+            'channel_link': channel_link,
+        }
+        videos.append(video)
+    return videos
 
 # Create your views here.
 
@@ -261,6 +285,89 @@ def index(request):
     except:
         pass
 
+    # ----------------Fuente MundoBocaTV------------------
+
+    mbtv_title = 'MundoBocaTV' 
+    mbtv_channel = 'https://www.youtube.com/channel/UCtFanqiLodEW0ZQEshO1gyw'
+    mbtv_videos = youtube('channel_id', 'UCtFanqiLodEW0ZQEshO1gyw')
+    
+    # ----------------Fuente Alma Xeneize------------------
+
+    ax_title = 'Alma Xeneize' 
+    ax_channel = 'https://www.youtube.com/c/ALMAXENEIZEradio'
+    ax_videos = youtube('channel_id', 'UCx7rTQEwFDvSBxYjo7rmdPA')
+    
+    # ----------------Fuente Club Atlético Boca Juniors------------------
+
+    cabj_title = 'Club Atlético Boca Juniors' 
+    cabj_channel = 'https://www.youtube.com/c/bocajuniors'
+    cabj_videos = youtube('channel_id', 'UCRtB_RAtKH72CgVAKHFgdIw')
+    
+    # ----------------Fuente AX------------------
+
+    ax2_title = 'AX' 
+    ax2_channel = 'https://www.youtube.com/channel/UCZFhYCVsAzEXdmJRPiKdMaA'
+    ax2_videos = youtube('channel_id', 'UCZFhYCVsAzEXdmJRPiKdMaA')
+    
+    # ----------------Fuente El Show de Boca (con Roberto Leto)------------------
+
+    esdb_title = 'El Show de Boca (con Roberto Leto)' 
+    esdb_channel = 'https://www.youtube.com/channel/UCigMtQPA1eB3pAa1ri78syg'
+    esdb_videos_list = youtube('channel_id', 'UCigMtQPA1eB3pAa1ri78syg')
+    esdb_videos = []
+    for video in esdb_videos_list:
+        string = video['title']
+        if "EL SHOW DE #BOCA CON ROBERTO LETO" in string:
+            esdb_videos.append(video)
+        else:
+            pass
+    
+    # ----------------Fuente Tato Aguilera------------------
+
+    ta_title = 'Tato Aguilera' 
+    ta_channel = 'https://www.youtube.com/c/TatoAguileraPeriodistaDeportivo'
+    ta_videos = youtube('channel_id', 'UCAcqM8y1nSTdAtIPYhX-Sgw')
+    
+    # ----------------------- Últimos Videos ----------------------------
+    
+    last_videos = []
+    
+    try:
+        last_videos.append(mbtv_videos[0])
+        last_videos.append(ax_videos[0])
+        last_videos.append(cabj_videos[0])
+        last_videos.append(ax2_videos[0])
+        last_videos.append(esdb_videos[0])
+        last_videos.append(ta_videos[0])
+        last_videos.append(mbtv_videos[1])
+        last_videos.append(ax_videos[1])
+        last_videos.append(cabj_videos[1])
+        last_videos.append(ax2_videos[1])
+        last_videos.append(esdb_videos[1])
+        last_videos.append(ta_videos[1])
+        last_videos.append(mbtv_videos[2])
+        last_videos.append(ax_videos[2])
+        last_videos.append(cabj_videos[2])
+        last_videos.append(ax2_videos[2])
+        last_videos.append(esdb_videos[2])
+        last_videos.append(ta_videos[2])
+        last_videos.append(mbtv_videos[3])
+        last_videos.append(ax_videos[3])
+        last_videos.append(cabj_videos[3])
+        last_videos.append(ax2_videos[3])
+        last_videos.append(esdb_videos[3])
+        last_videos.append(ta_videos[3])
+        last_videos.append(mbtv_videos[4])
+        last_videos.append(ax_videos[4])
+        last_videos.append(cabj_videos[4])
+        last_videos.append(ax2_videos[4])
+        last_videos.append(ta_videos[4])
+        last_videos.append(mbtv_videos[5])
+        last_videos.append(ax_videos[5])
+        last_videos.append(cabj_videos[5])
+    except:
+        pass
+
     contenido = {
         "nombre_sitio": "Blog Xeneize", 
         "tyc_news": tyc_news,
@@ -281,5 +388,24 @@ def index(request):
         "last_infobae_news": last_infobae_news,
         "last_ln_news": last_ln_news,
         "last_bv_news": last_bv_news,
+        "mbtv_title": mbtv_title,
+        "mbtv_channel": mbtv_channel,
+        "mbtv_videos": mbtv_videos,
+        "ax_title": ax_title,
+        "ax_channel": ax_channel,
+        "ax_videos": ax_videos,
+        "cabj_title": cabj_title,
+        "cabj_channel": cabj_channel,
+        "cabj_videos": cabj_videos,
+        "ax2_title": ax2_title,
+        "ax2_channel": ax2_channel,
+        "ax2_videos": ax2_videos,
+        "esdb_title": esdb_title,
+        "esdb_channel": esdb_channel,
+        "esdb_videos": esdb_videos,
+        "ta_title": ta_title,
+        "ta_channel": ta_channel,
+        "ta_videos": ta_videos,
+        "last_videos": last_videos,
         }
     return render(request, "blog/index.html", contenido)
