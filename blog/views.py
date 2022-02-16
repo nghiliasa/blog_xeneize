@@ -40,16 +40,22 @@ def youtube(origin, id):
 def index(request):
     tyc_news = []
     tyc_title = 'TyC Sports'
+    tyc_web = 'https://www.tycsports.com/'
     ole_news = []
     ole_title = 'Diario Deportivo Olé'
+    ole_web = 'https://www.ole.com.ar/'
     as_news = []
     as_title = 'AS Argentina'
+    as_web = 'https://argentina.as.com/'
     infobae_news = []
     infobae_title = 'Infobae'
+    infobae_web = 'https://www.infobae.com/'
     ln_news = []
     ln_title = 'La Nación'
+    ln_web = 'https://www.lanacion.com.ar/'
     bv_news = []
     bv_title = 'Bola Vip'
+    bv_web = 'https://bolavip.com/ar'
 
     # ----------------------- Fuente Tyc Sports ----------------------------
     try:
@@ -372,16 +378,22 @@ def index(request):
         "nombre_sitio": "Blog Xeneize", 
         "tyc_news": tyc_news,
         "tyc_title": tyc_title,
+        "tyc_web": tyc_web,
         "ole_news": ole_news,
         "ole_title": ole_title,
+        "ole_web": ole_web,
         "as_news": as_news,
         "as_title": as_title,
+        "as_web": as_web,
         "infobae_news": infobae_news,
         "infobae_title": infobae_title,
+        "infobae_web": infobae_web,
         "ln_news": ln_news,
         "ln_title": ln_title,
+        "ln_web": ln_web,
         "bv_news": bv_news,
         "bv_title": bv_title,
+        "bv_web": bv_web,
         "last_tyc_news": last_tyc_news,
         "last_ole_news": last_ole_news,
         "last_as_news": last_as_news,

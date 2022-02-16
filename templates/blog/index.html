@@ -269,10 +269,11 @@
 			<div class="row no-gutters">
 				{% for i in tyc_news %}
 				<div class="col-sm-12 col-md-6 col-lg-6 col-xl-3 mr-auto mb-3 rounded-lg" style="background-color:#043d6e;background-clip: padding-box;border: 5px solid transparent!important">
-					<a href="{{i.news_link}}" target="_blank"><img class="card-img-top" src="{{i.image}}" alt="Card image cap"></a>
+					<a href="{{i.news_link}}" target="_blank"><img class="card-img-top" src="{{i.image}}" style="height: 280px !important;" alt="Card image cap"></a>
 					<div class="card-body">
-					<h6 class="card-title"><a style="color:#f7bc00!important" href="{{i.news_link}}" target="_blank">{{i.title}}</a></h5>
-					<p class="card-text"><small class="text-muted" style="color:#ffffff!important">Fuente: {{i.source}}</small></p>
+					<h6 class="card-title mb-4"><a style="color:#f7bc00!important" href="{{i.news_link}}" target="_blank">{{i.title}}</a></h6>
+					<p class="card-text"><small class="text-muted" style="color:#ffffff!important; position:absolute;bottom:1px;left:5px;margin:0;padding:5px 15px;"></small></p>
+					<p class="card-text"><small class="text-muted" style="color:#ffffff!important; position:absolute;bottom:1px;right:5px;margin:0;padding:5px 15px;"><a style="color:#ffffff!important" href="{{tyc_web}}" target="_blank">Fuente: {{i.source}}</a></small></p>
 					</div>
 				</div>
 				{% endfor %}
@@ -296,10 +297,11 @@
 	        <div class="row no-gutters">
 				{% for i in ole_news %}
 				<div class="col-sm-12 col-md-6 col-lg-6 col-xl-3 mr-auto mb-3 rounded-lg" style="background-color:#043d6e;background-clip: padding-box;border: 5px solid transparent!important">
-					<a href="{{i.news_link}}" target="_blank"><img class="card-img-top" src="{{i.image}}" alt="Card image cap"></a>
+					<a href="{{i.news_link}}" target="_blank"><img class="card-img-top" src="{{i.image}}" style="height: 280px !important;" alt="Card image cap"></a>
 					<div class="card-body">
-						<h6 class="card-title"><a style="color:#f7bc00!important" href="{{i.news_link}}" target="_blank">{{i.title}}</a></h5>
-							<p class="card-text"><small class="text-muted" style="color:#ffffff!important">Fuente: {{i.source}}</small></p>
+					<h6 class="card-title mb-4"><a style="color:#f7bc00!important" href="{{i.news_link}}" target="_blank">{{i.title}}</a></h6>
+					<p class="card-text"><small class="text-muted" style="color:#ffffff!important; position:absolute;bottom:1px;left:5px;margin:0;padding:5px 15px;"></small></p>
+					<p class="card-text"><small class="text-muted" style="color:#ffffff!important; position:absolute;bottom:1px;right:5px;margin:0;padding:5px 15px;"><a style="color:#ffffff!important" href="{{ole_web}}" target="_blank">Fuente: {{i.source}}</a></small></p>
 					</div>
 				</div>
 				{% endfor %}
@@ -323,10 +325,11 @@
 			<div class="row no-gutters">
 				{% for i in as_news %}
 				<div class="col-sm-12 col-md-6 col-lg-6 col-xl-3 mr-auto mb-3 rounded-lg" style="background-color:#043d6e;background-clip: padding-box;border: 5px solid transparent!important">
-					<a href="{{i.news_link}}" target="_blank"><img class="card-img-top" src="{{i.image}}" alt="Card image cap"></a>
+					<a href="{{i.news_link}}" target="_blank"><img class="card-img-top" src="{{i.image}}" style="height: 280px !important;" alt="Card image cap"></a>
 					<div class="card-body">
-						<h6 class="card-title"><a style="color:#f7bc00!important" href="{{i.news_link}}" target="_blank">{{i.title}}</a></h5>
-							<p class="card-text"><small class="text-muted" style="color:#ffffff!important">Fuente: {{i.source}}</small></p>
+					<h6 class="card-title mb-4"><a style="color:#f7bc00!important" href="{{i.news_link}}" target="_blank">{{i.title}}</a></h6>
+					<p class="card-text"><small class="text-muted" style="color:#ffffff!important; position:absolute;bottom:1px;left:5px;margin:0;padding:5px 15px;"></small></p>
+					<p class="card-text"><small class="text-muted" style="color:#ffffff!important; position:absolute;bottom:1px;right:5px;margin:0;padding:5px 15px;"><a style="color:#ffffff!important" href="{{as_web}}" target="_blank">Fuente: {{i.source}}</a></small></p>
 					</div>
 				</div>
 				{% endfor %}
@@ -350,10 +353,11 @@
 			<div class="row no-gutters">
 				{% for i in infobae_news %}
 				<div class="col-sm-12 col-md-6 col-lg-6 col-xl-3 mr-auto mb-3 rounded-lg" style="background-color:#043d6e;background-clip: padding-box;border: 5px solid transparent!important">
-					<a href="{{i.news_link}}" target="_blank"><img class="card-img-top" src="{{i.image}}" alt="Card image cap"></a>
+					<a href="{{i.news_link}}" target="_blank"><img class="card-img-top" src="{{i.image}}" style="height: 280px !important;" alt="Card image cap"></a>
 					<div class="card-body">
-						<h6 class="card-title"><a style="color:#f7bc00!important" href="{{i.news_link}}" target="_blank">{{i.title}}</a></h5>
-							<p class="card-text"><small class="text-muted" style="color:#ffffff!important">Fuente: {{i.source}}</small></p>
+					<h6 class="card-title mb-4"><a style="color:#f7bc00!important" href="{{i.news_link}}" target="_blank">{{i.title}}</a></h6>
+					<p class="card-text"><small class="text-muted" style="color:#ffffff!important; position:absolute;bottom:1px;left:5px;margin:0;padding:5px 15px;"></small></p>
+					<p class="card-text"><small class="text-muted" style="color:#ffffff!important; position:absolute;bottom:1px;right:5px;margin:0;padding:5px 15px;"><a style="color:#ffffff!important" href="{{infobae_web}}" target="_blank">Fuente: {{i.source}}</a></small></p>
 					</div>
 				</div>
 				{% endfor %}
@@ -377,10 +381,11 @@
 			<div class="row no-gutters">
 				{% for i in ln_news %}
 				<div class="col-sm-12 col-md-6 col-lg-6 col-xl-3 mr-auto mb-3 rounded-lg" style="background-color:#043d6e;background-clip: padding-box;border: 5px solid transparent!important">
-					<a href="{{i.news_link}}" target="_blank"><img class="card-img-top" src="{{i.image}}" alt="Card image cap"></a>
+					<a href="{{i.news_link}}" target="_blank"><img class="card-img-top" src="{{i.image}}" style="height: 280px !important;" alt="Card image cap"></a>
 					<div class="card-body">
-						<h6 class="card-title"><a style="color:#f7bc00!important" href="{{i.news_link}}" target="_blank">{{i.title}}</a></h5>
-							<p class="card-text"><small class="text-muted" style="color:#ffffff!important">Fuente: {{i.source}}</small></p>
+					<h6 class="card-title mb-4"><a style="color:#f7bc00!important" href="{{i.news_link}}" target="_blank">{{i.title}}</a></h6>
+					<p class="card-text"><small class="text-muted" style="color:#ffffff!important; position:absolute;bottom:1px;left:5px;margin:0;padding:5px 15px;"></small></p>
+					<p class="card-text"><small class="text-muted" style="color:#ffffff!important; position:absolute;bottom:1px;right:5px;margin:0;padding:5px 15px;"><a style="color:#ffffff!important" href="{{ln_web}}" target="_blank">Fuente: {{i.source}}</a></small></p>
 					</div>
 				</div>
 				{% endfor %}
@@ -404,10 +409,11 @@
 			<div class="row no-gutters">
 				{% for i in bv_news %}
 				<div class="col-sm-12 col-md-6 col-lg-6 col-xl-3 mr-auto mb-3 rounded-lg" style="background-color:#043d6e;background-clip: padding-box;border: 5px solid transparent!important">
-					<a href="{{i.news_link}}" target="_blank"><img class="card-img-top" src="{{i.image}}" alt="Card image cap"></a>
+					<a href="{{i.news_link}}" target="_blank"><img class="card-img-top" src="{{i.image}}" style="height: 280px !important;" alt="Card image cap"></a>
 					<div class="card-body">
-						<h6 class="card-title"><a style="color:#f7bc00!important" href="{{i.news_link}}" target="_blank">{{i.title}}</a></h5>
-							<p class="card-text"><small class="text-muted" style="color:#ffffff!important">Fuente: {{i.source}}</small></p>
+					<h6 class="card-title mb-4"><a style="color:#f7bc00!important" href="{{i.news_link}}" target="_blank">{{i.title}}</a></h6>
+					<p class="card-text"><small class="text-muted" style="color:#ffffff!important; position:absolute;bottom:1px;left:5px;margin:0;padding:5px 15px;"></small></p>
+					<p class="card-text"><small class="text-muted" style="color:#ffffff!important; position:absolute;bottom:1px;right:5px;margin:0;padding:5px 15px;"><a style="color:#ffffff!important" href="{{bv_web}}" target="_blank">Fuente: {{i.source}}</a></small></p>
 					</div>
 				</div>
 				{% endfor %}
@@ -433,8 +439,8 @@
 				<div class="col-sm-12 col-md-6 col-lg-6 col-xl-3 mr-auto mb-3 rounded-lg" style="background-color:#043d6e;background-clip: padding-box;border: 5px solid transparent!important">
 					<iframe class="embed-responsive embed-responsive-16by9 embed-responsive-item rounded-top" height="280" frameborder="0" src="{{i.embed}}" title="YouTube video player" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 					<div class="card-body">
-						<h6 class="card-title"><a style="color:#f7bc00!important" href="{{i.link}}" target="_blank">{{i.title}}</a></h5>
-						<p class="card-text"><small class="text-muted" style="color:#ffffff!important"><a style="color:#ffffff!important" href="{{mbtv_channel}}" target="_blank">Canal: {{mbtv_title}}</a></small></p>
+						<h6 class="card-title mb-4"><a style="color:#f7bc00!important" href="{{i.link}}" target="_blank">{{i.title}}</a></h6>
+						<p class="card-text"><small class="text-muted" style="color:#ffffff!important; position:absolute;bottom:1px;right:5px;margin:0;padding:5px 15px;"><a style="color:#ffffff!important" href="{{mbtv_channel}}" target="_blank">Canal: {{mbtv_title}}</a></small></p>
 					</div>
 				</div>
 				{% endfor %}
@@ -460,8 +466,8 @@
 				<div class="col-sm-12 col-md-6 col-lg-6 col-xl-3 mr-auto mb-3 rounded-lg" style="background-color:#043d6e;background-clip: padding-box;border: 5px solid transparent!important">
 					<iframe class="embed-responsive embed-responsive-16by9 embed-responsive-item rounded-top" height="280" frameborder="0" src="{{i.embed}}" title="YouTube video player" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 					<div class="card-body">
-						<h6 class="card-title"><a style="color:#f7bc00!important" href="{{i.link}}" target="_blank">{{i.title}}</a></h5>
-						<p class="card-text"><small class="text-muted" style="color:#ffffff!important"><a style="color:#ffffff!important" href="{{ax_channel}}" target="_blank">Canal: {{ax_title}}</a></small></p>
+						<h6 class="card-title mb-4"><a style="color:#f7bc00!important" href="{{i.link}}" target="_blank">{{i.title}}</a></h6>
+						<p class="card-text"><small class="text-muted" style="color:#ffffff!important; position:absolute;bottom:1px;right:5px;margin:0;padding:5px 15px;"><a style="color:#ffffff!important" href="{{ax_channel}}" target="_blank">Canal: {{ax_title}}</a></small></p>
 					</div>
 				</div>
 				{% endfor %}
@@ -487,8 +493,8 @@
 				<div class="col-sm-12 col-md-6 col-lg-6 col-xl-3 mr-auto mb-3 rounded-lg" style="background-color:#043d6e;background-clip: padding-box;border: 5px solid transparent!important">
 					<iframe class="embed-responsive embed-responsive-16by9 embed-responsive-item rounded-top" height="280" frameborder="0" src="{{i.embed}}" title="YouTube video player" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 					<div class="card-body">
-						<h6 class="card-title"><a style="color:#f7bc00!important" href="{{i.link}}" target="_blank">{{i.title}}</a></h5>
-						<p class="card-text"><small class="text-muted" style="color:#ffffff!important"><a style="color:#ffffff!important" href="{{cabj_channel}}" target="_blank">Canal: {{cabj_title}}</a></small></p>
+						<h6 class="card-title mb-4"><a style="color:#f7bc00!important" href="{{i.link}}" target="_blank">{{i.title}}</a></h6>
+						<p class="card-text"><small class="text-muted" style="color:#ffffff!important; position:absolute;bottom:1px;right:5px;margin:0;padding:5px 15px;"><a style="color:#ffffff!important" href="{{cabj_channel}}" target="_blank">Canal: {{cabj_title}}</a></small></p>
 					</div>
 				</div>
 				{% endfor %}
@@ -514,8 +520,8 @@
 				<div class="col-sm-12 col-md-6 col-lg-6 col-xl-3 mr-auto mb-3 rounded-lg" style="background-color:#043d6e;background-clip: padding-box;border: 5px solid transparent!important">
 					<iframe class="embed-responsive embed-responsive-16by9 embed-responsive-item rounded-top" height="280" frameborder="0" src="{{i.embed}}" title="YouTube video player" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 					<div class="card-body">
-						<h6 class="card-title"><a style="color:#f7bc00!important" href="{{i.link}}" target="_blank">{{i.title}}</a></h5>
-						<p class="card-text"><small class="text-muted" style="color:#ffffff!important"><a style="color:#ffffff!important" href="{{ax2_channel}}" target="_blank">Canal: {{ax2_title}}</a></small></p>
+						<h6 class="card-title mb-4"><a style="color:#f7bc00!important" href="{{i.link}}" target="_blank">{{i.title}}</a></h6>
+						<p class="card-text"><small class="text-muted" style="color:#ffffff!important; position:absolute;bottom:1px;right:5px;margin:0;padding:5px 15px;"><a style="color:#ffffff!important" href="{{ax2_channel}}" target="_blank">Canal: {{ax2_title}}</a></small></p>
 					</div>
 				</div>
 				{% endfor %}
@@ -541,8 +547,8 @@
 				<div class="col-sm-12 col-md-6 col-lg-6 col-xl-3 mr-auto mb-3 rounded-lg" style="background-color:#043d6e;background-clip: padding-box;border: 5px solid transparent!important">
 					<iframe class="embed-responsive embed-responsive-16by9 embed-responsive-item rounded-top" height="280" frameborder="0" src="{{i.embed}}" title="YouTube video player" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 					<div class="card-body">
-						<h6 class="card-title"><a style="color:#f7bc00!important" href="{{i.link}}" target="_blank">{{i.title}}</a></h5>
-						<p class="card-text"><small class="text-muted" style="color:#ffffff!important"><a style="color:#ffffff!important" href="{{ta_channel}}" target="_blank">Canal: {{ta_title}}</a></small></p>
+						<h6 class="card-title mb-4"><a style="color:#f7bc00!important" href="{{i.link}}" target="_blank">{{i.title}}</a></h6>
+						<p class="card-text"><small class="text-muted" style="color:#ffffff!important; position:absolute;bottom:1px;right:5px;margin:0;padding:5px 15px;"><a style="color:#ffffff!important" href="{{ta_channel}}" target="_blank">Canal: {{ta_title}}</a></small></p>
 					</div>
 				</div>
 				{% endfor %}
@@ -568,8 +574,8 @@
 				<div class="col-sm-12 col-md-6 col-lg-6 col-xl-3 mr-auto mb-3 rounded-lg" style="background-color:#043d6e;background-clip: padding-box;border: 5px solid transparent!important">
 					<iframe class="embed-responsive embed-responsive-16by9 embed-responsive-item rounded-top" height="280" frameborder="0" src="{{i.embed}}" title="YouTube video player" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 					<div class="card-body">
-						<h6 class="card-title"><a style="color:#f7bc00!important" href="{{i.link}}" target="_blank">{{i.title}}</a></h5>
-						<p class="card-text"><small class="text-muted" style="color:#ffffff!important"><a style="color:#ffffff!important" href="{{esdb_channel}}" target="_blank">Canal: Fútbol de los Grandes</a></small></p>
+						<h6 class="card-title mb-4"><a style="color:#f7bc00!important" href="{{i.link}}" target="_blank">{{i.title}}</a></h6>
+						<p class="card-text"><small class="text-muted" style="color:#ffffff!important; position:absolute;bottom:1px;right:5px;margin:0;padding:5px 15px;"><a style="color:#ffffff!important" href="{{esdb_channel}}" target="_blank">Canal: Fútbol de los Grandes</a></small></p>
 					</div>
 				</div>
 				{% endfor %}
