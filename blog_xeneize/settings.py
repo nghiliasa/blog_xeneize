@@ -77,8 +77,12 @@ WSGI_APPLICATION = 'blog_xeneize.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': 'dcm73mou4hmv4j',
+        'USER': 'bmarwfvqxbkayi',
+        'PASSWORD': '79b1dce96adbcf21fd61313e5e738e950921431310bf33932fe6fde28c406c32',
+        'HOST': 'ec2-3-227-195-74.compute-1.amazonaws.com',
+        'PORT': '5432',
     }
 }
 
