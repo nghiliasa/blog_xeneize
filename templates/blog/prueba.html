@@ -6,7 +6,8 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
         <meta name="description" content="" />
         <meta name="author" content="" />
-        <title>Resume - Start Bootstrap Theme</title>
+        <link rel="icon" type="image/png" href="{% static 'blog/assets/img/icono_thumb.png' %}">
+        <title>{{ nombre_sitio }}</title>
         <link rel="icon" type="image/x-icon" href="assets/img/favicon.ico" />
         <!-- Font Awesome icons (free version)-->
         <script src="https://use.fontawesome.com/releases/v5.15.4/js/all.js" crossorigin="anonymous"></script>
@@ -102,7 +103,7 @@
                             <div class="carousel-inner">
                             {% for i in last_tyc_news %}
                               <div class="carousel-item {% if forloop.counter0 == 0 %}active{% else %}{% endif %}">
-                                <a href="{{i.news_link}}" target="_blank"><img class="img-fluid" style="width: 100% !important; object-fit: cover !important;height: 300px !important;" src="{{i.image}}" alt="{{forloop.counter0}}"></a>
+                                <a href="{{i.news_link}}" target="_blank"><img class="img-fluid" style="width: 100% !important; object-fit: cover !important;height: 260px !important;" src="{{i.image}}" alt="{{forloop.counter0}}"></a>
                                 <div class="carousel-caption" style="padding-bottom: 0rem !important;">
                                     <h5 class="text-white" style="margin-bottom: 2rem !important;text-shadow: 2px 2px #000000">{{i.title}}</h5>
                                     <p class="text-white" style="text-shadow: 2px 2px #000000">Fuente: {{i.source}}</p>
@@ -132,7 +133,7 @@
                                 <div class="carousel-inner">
                                 {% for i in last_ole_news %}
                                   <div class="carousel-item {% if forloop.counter0 == 0 %}active{% else %}{% endif %}">
-                                    <a href="{{i.news_link}}" target="_blank"><img class="img-fluid" style="width: 100% !important; object-fit: cover !important;height: 300px !important;" src="{{i.image}}" alt="{{forloop.counter0}}"></a>
+                                    <a href="{{i.news_link}}" target="_blank"><img class="img-fluid" style="width: 100% !important; object-fit: cover !important;height: 260px !important;" src="{{i.image}}" alt="{{forloop.counter0}}"></a>
                                     <div class="carousel-caption" style="padding-bottom: 0rem !important;">
                                         <h5 class="text-white" style="margin-bottom: 2rem !important;text-shadow: 2px 2px #000000">{{i.title}}</h5>
                                         <p class="text-white" style="text-shadow: 2px 2px #000000">Fuente: {{i.source}}</p>
@@ -162,7 +163,7 @@
                                 <div class="carousel-inner">
                                 {% for i in last_as_news %}
                                   <div class="carousel-item {% if forloop.counter0 == 0 %}active{% else %}{% endif %}">
-                                    <a href="{{i.news_link}}" target="_blank"><img class="img-fluid" style="width: 100% !important; object-fit: cover !important;height: 300px !important;" src="{{i.image}}" alt="{{forloop.counter0}}"></a>
+                                    <a href="{{i.news_link}}" target="_blank"><img class="img-fluid" style="width: 100% !important; object-fit: cover !important;height: 260px !important;" src="{{i.image}}" alt="{{forloop.counter0}}"></a>
                                     <div class="carousel-caption" style="padding-bottom: 0rem !important;">
                                         <h5 class="text-white" style="margin-bottom: 2rem !important;text-shadow: 2px 2px #000000">{{i.title}}</h5>
                                         <p class="text-white" style="text-shadow: 2px 2px #000000">Fuente: {{i.source}}</p>
@@ -192,7 +193,7 @@
                                 <div class="carousel-inner">
                                 {% for i in last_infobae_news %}
                                   <div class="carousel-item {% if forloop.counter0 == 0 %}active{% else %}{% endif %}">
-                                    <a href="{{i.news_link}}" target="_blank"><img class="img-fluid" style="width: 100% !important; object-fit: cover !important;height: 300px !important;" src="{{i.image}}" alt="{{forloop.counter0}}"></a>
+                                    <a href="{{i.news_link}}" target="_blank"><img class="img-fluid" style="width: 100% !important; object-fit: cover !important;height: 260px !important;" src="{{i.image}}" alt="{{forloop.counter0}}"></a>
                                     <div class="carousel-caption" style="padding-bottom: 0rem !important;">
                                         <h5 class="text-white" style="margin-bottom: 2rem !important;text-shadow: 2px 2px #000000">{{i.title}}</h5>
                                         <p class="text-white" style="text-shadow: 2px 2px #000000">Fuente: {{i.source}}</p>
@@ -222,7 +223,7 @@
                                 <div class="carousel-inner">
                                 {% for i in last_ln_news %}
                                   <div class="carousel-item {% if forloop.counter0 == 0 %}active{% else %}{% endif %}">
-                                    <a href="{{i.news_link}}" target="_blank"><img class="img-fluid" style="width: 100% !important; object-fit: cover !important;height: 300px !important;" src="{{i.image}}" alt="{{forloop.counter0}}"></a>
+                                    <a href="{{i.news_link}}" target="_blank"><img class="img-fluid" style="width: 100% !important; object-fit: cover !important;height: 260px !important;" src="{{i.image}}" alt="{{forloop.counter0}}"></a>
                                     <div class="carousel-caption" style="padding-bottom: 0rem !important;">
                                         <h5 class="text-white" style="margin-bottom: 2rem !important;text-shadow: 2px 2px #000000">{{i.title}}</h5>
                                         <p class="text-white" style="text-shadow: 2px 2px #000000">Fuente: {{i.source}}</p>
@@ -252,7 +253,7 @@
                                 <div class="carousel-inner">
                                 {% for i in last_bv_news %}
                                   <div class="carousel-item {% if forloop.counter0 == 0 %}active{% else %}{% endif %}">
-                                    <a href="{{i.news_link}}" target="_blank"><img class="img-fluid" style="width: 100% !important; object-fit: cover !important;height: 300px !important;" src="{{i.image}}" alt="{{forloop.counter0}}"></a>
+                                    <a href="{{i.news_link}}" target="_blank"><img class="img-fluid" style="width: 100% !important; object-fit: cover !important;height: 260px !important;" src="{{i.image}}" alt="{{forloop.counter0}}"></a>
                                     <div class="carousel-caption" style="padding-bottom: 0rem !important;">
                                         <h5 class="text-white" style="margin-bottom: 2rem !important;text-shadow: 2px 2px #000000">{{i.title}}</h5>
                                         <p class="text-white" style="text-shadow: 2px 2px #000000">Fuente: {{i.source}}</p>
@@ -322,7 +323,7 @@
                         {% for i in tyc_news %}
                         <div class="col-sm-12 col-md-6 col-lg-6 col-xl-3 mr-auto mb-3 rounded-lg" style="background-color:#043d6e;background-clip: padding-box;border: 5px solid transparent!important">
                             <div class="card h-100 border-0" style="background-color:#043d6e;">
-                                <a href="{{i.news_link}}" target="_blank"><img class="card-img-top" src="{{i.image}}" style="width: 100% !important; object-fit: cover !important;height: 260px !important;" alt="Card image cap"></a>
+                                <a href="{{i.news_link}}" target="_blank"><img class="card-img-top" src="{{i.image}}" style="width: 100% !important; object-fit: cover !important;height: 240px !important;" alt="Card image cap"></a>
                                 <div class="card-body">
                                   <h5 class="card-title"><a style="color:#f7bc00!important" href="{{i.link}}" target="_blank">{{i.title}}</a></h5>
                                 </div>
@@ -353,7 +354,7 @@
                         {% for i in ole_news %}
                         <div class="col-sm-12 col-md-6 col-lg-6 col-xl-3 mr-auto mb-3 rounded-lg" style="background-color:#043d6e;background-clip: padding-box;border: 5px solid transparent!important">
                             <div class="card h-100 border-0" style="background-color:#043d6e;">
-                                <a href="{{i.news_link}}" target="_blank"><img class="card-img-top" src="{{i.image}}" style="width: 100% !important; object-fit: cover !important;height: 260px !important;" alt="Card image cap"></a>
+                                <a href="{{i.news_link}}" target="_blank"><img class="card-img-top" src="{{i.image}}" style="width: 100% !important; object-fit: cover !important;height: 240px !important;" alt="Card image cap"></a>
                                 <div class="card-body">
                                   <h5 class="card-title"><a style="color:#f7bc00!important" href="{{i.link}}" target="_blank">{{i.title}}</a></h5>
                                 </div>
@@ -384,7 +385,7 @@
                         {% for i in as_news %}
                         <div class="col-sm-12 col-md-6 col-lg-6 col-xl-3 mr-auto mb-3 rounded-lg" style="background-color:#043d6e;background-clip: padding-box;border: 5px solid transparent!important">
                             <div class="card h-100 border-0" style="background-color:#043d6e;">
-                                <a href="{{i.news_link}}" target="_blank"><img class="card-img-top" src="{{i.image}}" style="width: 100% !important; object-fit: cover !important;height: 260px !important;" alt="Card image cap"></a>
+                                <a href="{{i.news_link}}" target="_blank"><img class="card-img-top" src="{{i.image}}" style="width: 100% !important; object-fit: cover !important;height: 240px !important;" alt="Card image cap"></a>
                                 <div class="card-body">
                                   <h5 class="card-title"><a style="color:#f7bc00!important" href="{{i.link}}" target="_blank">{{i.title}}</a></h5>
                                 </div>
@@ -415,7 +416,7 @@
                         {% for i in infobae_news %}
                         <div class="col-sm-12 col-md-6 col-lg-6 col-xl-3 mr-auto mb-3 rounded-lg" style="background-color:#043d6e;background-clip: padding-box;border: 5px solid transparent!important">
                             <div class="card h-100 border-0" style="background-color:#043d6e;">
-                                <a href="{{i.news_link}}" target="_blank"><img class="card-img-top" src="{{i.image}}" style="width: 100% !important; object-fit: cover !important;height: 260px !important;" alt="Card image cap"></a>
+                                <a href="{{i.news_link}}" target="_blank"><img class="card-img-top" src="{{i.image}}" style="width: 100% !important; object-fit: cover !important;height: 240px !important;" alt="Card image cap"></a>
                                 <div class="card-body">
                                   <h5 class="card-title"><a style="color:#f7bc00!important" href="{{i.link}}" target="_blank">{{i.title}}</a></h5>
                                 </div>
@@ -446,7 +447,7 @@
                         {% for i in ln_news %}
                         <div class="col-sm-12 col-md-6 col-lg-6 col-xl-3 mr-auto mb-3 rounded-lg" style="background-color:#043d6e;background-clip: padding-box;border: 5px solid transparent!important">
                             <div class="card h-100 border-0" style="background-color:#043d6e;">
-                                <a href="{{i.news_link}}" target="_blank"><img class="card-img-top" src="{{i.image}}" style="width: 100% !important; object-fit: cover !important;height: 260px !important;" alt="Card image cap"></a>
+                                <a href="{{i.news_link}}" target="_blank"><img class="card-img-top" src="{{i.image}}" style="width: 100% !important; object-fit: cover !important;height: 240px !important;" alt="Card image cap"></a>
                                 <div class="card-body">
                                   <h5 class="card-title"><a style="color:#f7bc00!important" href="{{i.link}}" target="_blank">{{i.title}}</a></h5>
                                 </div>
@@ -477,7 +478,7 @@
                         {% for i in bv_news %}
                         <div class="col-sm-12 col-md-6 col-lg-6 col-xl-3 mr-auto mb-3 rounded-lg" style="background-color:#043d6e;background-clip: padding-box;border: 5px solid transparent!important">
                             <div class="card h-100 border-0" style="background-color:#043d6e;">
-                                <a href="{{i.news_link}}" target="_blank"><img class="card-img-top" src="{{i.image}}" style="width: 100% !important; object-fit: cover !important;height: 260px !important;" alt="Card image cap"></a>
+                                <a href="{{i.news_link}}" target="_blank"><img class="card-img-top" src="{{i.image}}" style="width: 100% !important; object-fit: cover !important;height: 240px !important;" alt="Card image cap"></a>
                                 <div class="card-body">
                                   <h5 class="card-title"><a style="color:#f7bc00!important" href="{{i.link}}" target="_blank">{{i.title}}</a></h5>
                                 </div>
