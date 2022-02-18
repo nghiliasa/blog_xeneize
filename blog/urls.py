@@ -4,6 +4,7 @@ from django.conf.urls.static import static
 from blog import views
 
 urlpatterns = [
+	path('prueba', views.prueba, name='prueba'),
 	path('', views.index, name='index'),
 ]
 

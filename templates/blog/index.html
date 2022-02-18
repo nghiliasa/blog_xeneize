@@ -46,8 +46,8 @@
 						  <div class="carousel-item {% if forloop.counter == 1 %}active{% else %}{% endif %}">
 							<div class="container-fluid">
 								<a href="{{i.news_link}}" target="_blank"><img class="img-fluid" style="width: 700px !important;height: 250px !important;" src="{{i.image}}" alt="{{forloop.counter}}"></a>
-								<div class="carousel-caption d-none d-block">
-									<h6 style="text-shadow: 2px 2px #000000">{{i.title}}</h5>
+								<div class="carousel-caption">
+									<h6 class="text-white" style="text-shadow: 2px 2px #000000">{{i.title}}</h5>
 									<p style="text-shadow: 2px 2px #000000">Fuente: {{i.source}}</p>
 								</div>
 							</div>
