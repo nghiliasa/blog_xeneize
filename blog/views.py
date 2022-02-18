@@ -13,6 +13,16 @@ import urllib
 import json
 from .models import Visit
 
+
+def get_user_public_ip(request):
+    """  Getting client Ip  """
+    x_forwarded_for = request.META.get('HTTP_X_FORWARDED_FOR')
+    if x_forwarded_for:
+        ip = x_forwarded_for.split(',')[0]
+    else:
+        ip = request.META.get('REMOTE_ADDR')
+    return ip
+
 def youtube(origin, id):
     urlvideo = 'https://www.youtube.com/feeds/videos.xml?{}={}'.format(origin, id)
     query = requests.get(urlvideo, headers={ "User-Agent": "Chrome/50.0.2661.94" })
@@ -468,7 +478,7 @@ def index(request):
             pass
         else:
             user_computername = request.META['COMPUTERNAME']
-            user_ip = requests.get('https://www.wikipedia.org').headers['X-Client-IP']
+            user_ip = get_user_public_ip(request)
             user_ip_data = requests.get('http://ip-api.com/json/{}'.format(user_ip)).json()
             user_country = user_ip_data['country']
             user_city = user_ip_data['regionName']
