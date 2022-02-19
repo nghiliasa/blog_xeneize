@@ -7,6 +7,8 @@ background-color: #043d6e;
 color:#f7bc00 !important;
  
 border-color: #f7bc00;
+
+border-radius: 25px !important;
  
 }
  
@@ -19,5 +21,7 @@ background-color: #f7bc00;
 color:#043d6e !important;
  
 border-color: #f7bc00;
+
+border-radius: 25px !important;
  
 }
