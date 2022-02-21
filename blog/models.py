@@ -18,4 +18,4 @@ class Visit(models.Model):
         verbose_name_plural='visits'
 
     def __str__(self):
-        return self.username
+        return self.ip
