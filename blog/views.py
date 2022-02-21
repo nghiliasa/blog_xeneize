@@ -386,30 +386,6 @@ def prueba(request):
     except:
         pass
 
-    #------------------------Visitor data------------------------------
-    
-    user_ip = get_user_public_ip(request)
-    user_ip_data = requests.get('http://ip-api.com/json/{}'.format(user_ip)).json()
-    user_country = user_ip_data['country']
-    user_city = user_ip_data['regionName']
-    user_location = user_ip_data['city']
-    user_zip = user_ip_data['zip']
-    user_lat = user_ip_data['lat']
-    user_lon = user_ip_data['lon']
-    
-    #------------------------New visit------------------------------
-    
-    new_visit = Visit(
-        ip=user_ip,
-        country=user_country,
-        city=user_city,
-        location=user_location,
-        zip=user_zip,
-        lat=user_lat,
-        lon=user_lon
-    )
-    new_visit.save()
-
     contenido = {
         "nombre_sitio": "Blog Xeneize", 
         "tyc_news": tyc_news,
@@ -793,6 +769,34 @@ def index(request):
         last_videos.append(mbtv_videos[5])
         last_videos.append(ax_videos[5])
         last_videos.append(cabj_videos[5])
+    except:
+        pass
+    
+    try:
+        #------------------------Visitor data------------------------------
+        
+        user_ip = get_user_public_ip(request)
+        user_ip_data = requests.get('http://ip-api.com/json/{}'.format(user_ip)).json()
+        user_country = user_ip_data['country']
+        user_city = user_ip_data['regionName']
+        user_location = user_ip_data['city']
+        user_zip = user_ip_data['zip']
+        user_lat = user_ip_data['lat']
+        user_lon = user_ip_data['lon']
+        
+        #------------------------New visit------------------------------
+        
+        new_visit = Visit(
+            ip=user_ip,
+            country=user_country,
+            city=user_city,
+            location=user_location,
+            zip=user_zip,
+            lat=user_lat,
+            lon=user_lon
+        )
+        new_visit.save()
+
     except:
         pass
 
