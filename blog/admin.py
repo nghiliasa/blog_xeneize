@@ -5,14 +5,12 @@ from .models import Visit
 
 class VisitAdmin(admin.ModelAdmin):
     readonly_fields = ('created', 'last_updated')
-    list_display = ('username', 'created')
+    list_display = ('ip', 'created')
     list_filter = ('location',)
-    search_fields = ('username',)
-    ordering = ('created',)
+    search_fields = ('country', 'city', 'location')
+    ordering = ('-created',)
     fieldsets = (
         (None, {'fields': (
-            'username', 
-            'computername', 
             'ip', 
             'country', 
             'city',

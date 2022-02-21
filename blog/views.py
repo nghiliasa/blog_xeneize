@@ -51,8 +51,6 @@ def youtube(origin, id):
 def prueba(request):
     #------------------------Visitor data------------------------------
     
-    user_username = request.META['USERNAME']
-    user_computername = request.META['COMPUTERNAME']
     user_ip = requests.get('https://www.wikipedia.org').headers['X-Client-IP']
     user_ip_data = requests.get('http://ip-api.com/json/{}'.format(user_ip)).json()
     user_country = user_ip_data['country']
@@ -65,8 +63,6 @@ def prueba(request):
     #------------------------New visit------------------------------
     
     new_visit = Visit(
-        username=user_username,
-        computername=user_computername,
         ip=user_ip,
         country=user_country,
         city=user_city,
@@ -462,40 +458,6 @@ def prueba(request):
     return render(request, "blog/index.html", contenido)
 
 def index(request):
-    try:
-        #------------------------Visitor data------------------------------
-        
-        user_username = request.META['USERNAME']
-        
-        if user_username == 'xenei':
-            pass
-        else:
-            user_computername = request.META['COMPUTERNAME']
-            user_ip = get_user_public_ip(request)
-            user_ip_data = requests.get('http://ip-api.com/json/{}'.format(user_ip)).json()
-            user_country = user_ip_data['country']
-            user_city = user_ip_data['regionName']
-            user_location = user_ip_data['city']
-            user_zip = user_ip_data['zip']
-            user_lat = user_ip_data['lat']
-            user_lon = user_ip_data['lon']
-            
-            #------------------------New visit------------------------------
-            
-            new_visit = Visit(
-                username=user_username,
-                computername=user_computername,
-                ip=user_ip,
-                country=user_country,
-                city=user_city,
-                location=user_location,
-                zip=user_zip,
-                lat=user_lat,
-                lon=user_lon
-            )
-            new_visit.save()
-    except:
-        pass
 
     tyc_news = []
     tyc_title = 'TyC Sports'
