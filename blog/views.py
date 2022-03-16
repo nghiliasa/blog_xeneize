@@ -1,17 +1,8 @@
-from ssl import SSLSession
-from django.shortcuts import render, redirect
-from django.http import HttpResponse
-from django.template import RequestContext, loader
-from django.views.generic import View
+from django.shortcuts import render
 from django.http import Http404
 from bs4 import BeautifulSoup
-from collections import OrderedDict
 import xml.etree.ElementTree as ET
 import requests
-import cfscrape
-import random
-import urllib
-import json
 from .models import Visit
 
 
