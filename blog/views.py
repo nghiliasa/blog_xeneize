@@ -1,3 +1,4 @@
+from ssl import SSLSession
 from django.shortcuts import render, redirect
 from django.http import HttpResponse
 from django.template import RequestContext, loader
@@ -517,6 +518,11 @@ def index(request):
             ole_news.append(news)
             ole_clock += 1
 
+        ole_news.pop(3)
+        ole_news.pop(3)
+        ole_news.pop(3)
+        ole_news.pop(3)
+
     except:
         pass
 
@@ -553,17 +559,20 @@ def index(request):
         infobae_articles = infobae_soup.find_all('a', 'nd-feed-list-card')
         infobae_clock = 1
         for article in infobae_articles:
-            news = {}
-            news_link = 'https://www.infobae.com' + article.attrs.get('href')
-            image = 'https://' + article.find_next('img').attrs.get('src').split('quality(85)/')[1].split(' ')[0]
-            title = article.find_next('h2').get_text()
-            news['id'] = infobae_clock
-            news['news_link'] = news_link
-            news['image'] = image
-            news['title'] = title
-            news['source'] = infobae_title
-            infobae_news.append(news)
-            infobae_clock += 1
+            try:
+                news = {}
+                news_link = 'https://www.infobae.com' + article.attrs.get('href')
+                image = 'https://' + article.find_next('img').attrs.get('src').split('quality(85)/')[1].split(' ')[0]
+                title = article.find_next('h2').get_text()
+                news['id'] = infobae_clock
+                news['news_link'] = news_link
+                news['image'] = image
+                news['title'] = title
+                news['source'] = infobae_title
+                infobae_news.append(news)
+                infobae_clock += 1
+            except:
+                pass
 
     except:
         pass
@@ -579,7 +588,7 @@ def index(request):
             try:
                 news = {}
                 news_link = 'https://www.lanacion.com.ar' + article.find_next('figure').find_next('a').attrs.get('href')
-                image = article.find_next('figure').find_next('picture').find_next('img').attrs.get('src')
+                image = article.find('img', 'com-image').attrs.get('src')
                 title = article.find_next('section', 'mod-description').find_next('h2', 'com-title').get_text()
                 news['id'] = ln_clock
                 news['news_link'] = news_link
@@ -771,8 +780,11 @@ def index(request):
         last_videos.append(cabj_videos[5])
     except:
         pass
+
+    for c,v in request.session.items():
+        print(c, ': ', v)
     
-    try:
+    '''try:
         #------------------------Visitor data------------------------------
         
         user_ip = get_user_public_ip(request)
@@ -798,7 +810,8 @@ def index(request):
         new_visit.save()
 
     except:
-        pass
+        pass'''
+
 
     contenido = {
         "nombre_sitio": "Blog Xeneize", 
