@@ -1,586 +1,714 @@
-{% extends "blog/layout.html" %}
 {% load static %}
-{% block contenedor2 %}
-
-	<header class="masthead text-white text-center" style="background-image: url({% static 'blog/assets/img/background.png' %});margin: 0px 0px 0px 0px !important;background-position: center;background-repeat: no-repeat;-moz-background-size: cover;-o-background-size: cover;background-size: cover" id="inicio">
-	    <div class="container-fluyd mt-5 pb-5">
-	        <!-- Masthead Avatar Image-->
-	        <div class="container d-flex align-items-center flex-column pb-5">
-				<img class="img-fluid" src="{% static 'blog/assets/img/icono_grande.png' %}" alt="Logo">
-	            <!-- Masthead Heading-->
-	            <h1 class="text-white mt-2" style="text-shadow: 3px 3px #043d6e;color:#f7bc00!important">Blog Xeneize</h1>
-	            <!-- Icon Divider-->
-	            <div class="divider-custom divider-light pt-4">
-	                <div class="divider-custom-line"></div>
-	                <div class="divider-custom-icon"><i class="far fa-newspaper"></i></div>
-	                <div class="divider-custom-line"></div>
-	            </div>
-	            <!-- Masthead Subheading-->
-	            <h2 class="pre-wrap masthead-subheading font-weight-bold text-white" style="text-shadow: 3px 3px #000000">Últimas noticias de Boca Juniors</h2>
-	        </div>
-	    </div>
-	</header>
-	<section class="page-section portfolio" style="background-color:#00418b!important" id="un">
-	    <div class="container-fluid">
-			<!-- Portfolio Section Heading-->
-			<div class="text-center" style="margin: 70px 0px 0px 0px !important;">
-				<h2 class="page-section-heading mb-0 d-inline-block" style="color:#f7bc00!important">Últimas noticias</h2>
-			</div>
-			<!-- Icon Divider-->
-			<div class="divider-custom divider-light">
-				<div class="divider-custom-line"></div>
-				<div class="divider-custom-icon"><img class="img-fluid" src="{% static 'blog/assets/img/icono_thumb.png' %}" alt="Logo"></div>
-				<div class="divider-custom-line"></div>
-			</div>
-			<div class="row no-gutters">
-				{% if last_tyc_news %}
-				<div class="col-sm-12 col-md-6 col-lg-6 col-xl-4 mr-auto mb-3 rounded-lg">
-					<div id="carousel1" class="carousel slide" data-ride="carousel" data-interval="10000">
-						<ol class="carousel-indicators">
-						{% for i in last_tyc_news %}
-						  <li data-target="#carousel1" data-slide-to="{{forloop.counter}}" {% if forloop.counter == 1 %}class="active"{% else %}{% endif %}></li>
-						{% endfor %}
-						</ol>
-						<div class="carousel-inner">
-						{% for i in last_tyc_news %}
-						  <div class="carousel-item {% if forloop.counter == 1 %}active{% else %}{% endif %}">
-							<div class="container-fluid">
-								<a href="{{i.news_link}}" target="_blank"><img class="img-fluid" style="width: 700px !important;height: 250px !important;" src="{{i.image}}" alt="{{forloop.counter}}"></a>
-								<div class="carousel-caption">
-									<h6 class="text-white" style="text-shadow: 2px 2px #000000">{{i.title}}</h5>
-									<p style="text-shadow: 2px 2px #000000">Fuente: {{i.source}}</p>
-								</div>
-							</div>
-						  </div>
-						{% endfor %}
-						</div>
-						<a class="carousel-control-prev" href="#carousel1" role="button" data-slide="prev">
-						  <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-						  <span class="sr-only">Previous</span>
-						</a>
-						<a class="carousel-control-next" href="#carousel1" role="button" data-slide="next">
-						  <span class="carousel-control-next-icon" aria-hidden="true"></span>
-						  <span class="sr-only">Next</span>
-						</a>
-					  </div>
-				</div>
-				{% endif %}
-				{% if last_ole_news %}
-				<div class="col-sm-12 col-md-6 col-lg-6 col-xl-4 mr-auto mb-3 rounded-lg">
-					<div id="carousel2" class="carousel slide" data-ride="carousel" data-interval="10000">
-						<ol class="carousel-indicators">
-						{% for i in last_ole_news %}
-						  <li data-target="#carousel2" data-slide-to="{{forloop.counter}}" {% if forloop.counter == 1 %}class="active"{% else %}{% endif %}></li>
-						{% endfor %}
-						</ol>
-						<div class="carousel-inner">
-						{% for i in last_ole_news %}
-						  <div class="carousel-item {% if forloop.counter == 1 %}active{% else %}{% endif %}">
-							<div class="container-fluid">
-								<a href="{{i.news_link}}" target="_blank"><img class="img-fluid" style="width: 700px !important;height: 250px !important;" src="{{i.image}}" alt="{{forloop.counter}}"></a>
-								<div class="carousel-caption d-none d-block">
-									<h6 style="text-shadow: 2px 2px #000000">{{i.title}}</h5>
-									<p style="text-shadow: 2px 2px #000000">Fuente: {{i.source}}</p>
-								</div>
-							</div>
-						  </div>
-						{% endfor %}
-						</div>
-						<a class="carousel-control-prev" href="#carousel2" role="button" data-slide="prev">
-						  <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-						  <span class="sr-only">Previous</span>
-						</a>
-						<a class="carousel-control-next" href="#carousel2" role="button" data-slide="next">
-						  <span class="carousel-control-next-icon" aria-hidden="true"></span>
-						  <span class="sr-only">Next</span>
-						</a>
-					</div>
-				</div>
-				{% endif %}
-				{% if last_as_news %}
-				<div class="col-sm-12 col-md-6 col-lg-6 col-xl-4 mr-auto mb-3 rounded-lg">
-					<div id="carousel3" class="carousel slide" data-ride="carousel" data-interval="10000">
-						<ol class="carousel-indicators">
-						{% for i in last_as_news %}
-						  <li data-target="#carousel3" data-slide-to="{{forloop.counter}}" {% if forloop.counter == 1 %}class="active"{% else %}{% endif %}></li>
-						{% endfor %}
-						</ol>
-						<div class="carousel-inner">
-						{% for i in last_as_news %}
-						  <div class="carousel-item {% if forloop.counter == 1 %}active{% else %}{% endif %}">
-							<div class="container-fluid">
-								<a href="{{i.news_link}}" target="_blank"><img class="img-fluid" style="width: 700px !important;height: 250px !important;" src="{{i.image}}" alt="{{forloop.counter}}"></a>
-								<div class="carousel-caption d-none d-block">
-									<h6 style="text-shadow: 2px 2px #000000">{{i.title}}</h5>
-									<p style="text-shadow: 2px 2px #000000">Fuente: {{i.source}}</p>
-								</div>
-							</div>
-						  </div>
-						{% endfor %}
-						</div>
-						<a class="carousel-control-prev" href="#carousel3" role="button" data-slide="prev">
-						  <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-						  <span class="sr-only">Previous</span>
-						</a>
-						<a class="carousel-control-next" href="#carousel3" role="button" data-slide="next">
-						  <span class="carousel-control-next-icon" aria-hidden="true"></span>
-						  <span class="sr-only">Next</span>
-						</a>
-					</div>
-				</div>
-				{% endif %}
-				{% if last_infobae_news %}
-				<div class="col-sm-12 col-md-6 col-lg-6 col-xl-4 mr-auto mb-3 rounded-lg">
-					<div id="carousel4" class="carousel slide" data-ride="carousel" data-interval="10000">
-						<ol class="carousel-indicators">
-						{% for i in last_infobae_news %}
-						  <li data-target="#carousel4" data-slide-to="{{forloop.counter}}" {% if forloop.counter == 1 %}class="active"{% else %}{% endif %}></li>
-						{% endfor %}
-						</ol>
-						<div class="carousel-inner">
-						{% for i in last_infobae_news %}
-						  <div class="carousel-item {% if forloop.counter == 1 %}active{% else %}{% endif %}">
-							<div class="container-fluid">
-								<a href="{{i.news_link}}" target="_blank"><img class="img-fluid" style="width: 700px !important;height: 250px !important;" src="{{i.image}}" alt="{{forloop.counter}}"></a>
-								<div class="carousel-caption d-none d-block">
-									<h6 style="text-shadow: 2px 2px #000000">{{i.title}}</h5>
-									<p style="text-shadow: 2px 2px #000000">Fuente: {{i.source}}</p>
-								</div>
-							</div>
-						  </div>
-						{% endfor %}
-						</div>
-						<a class="carousel-control-prev" href="#carousel4" role="button" data-slide="prev">
-						  <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-						  <span class="sr-only">Previous</span>
-						</a>
-						<a class="carousel-control-next" href="#carousel4" role="button" data-slide="next">
-						  <span class="carousel-control-next-icon" aria-hidden="true"></span>
-						  <span class="sr-only">Next</span>
-						</a>
-					</div>
-				</div>
-				{% endif %}
-				{% if last_ln_news %}
-				<div class="col-sm-12 col-md-6 col-lg-6 col-xl-4 mr-auto mb-3 rounded-lg">
-					<div id="carousel5" class="carousel slide" data-ride="carousel" data-interval="10000">
-						<ol class="carousel-indicators">
-						{% for i in last_ln_news %}
-						  <li data-target="#carousel5" data-slide-to="{{forloop.counter}}" {% if forloop.counter == 1 %}class="active"{% else %}{% endif %}></li>
-						{% endfor %}
-						</ol>
-						<div class="carousel-inner">
-						{% for i in last_ln_news %}
-						  <div class="carousel-item {% if forloop.counter == 1 %}active{% else %}{% endif %}">
-							<div class="container-fluid">
-								<a href="{{i.news_link}}" target="_blank"><img class="img-fluid" style="width: 700px !important;height: 250px !important;" src="{{i.image}}" alt="{{forloop.counter}}"></a>
-								<div class="carousel-caption d-none d-block">
-									<h6 style="text-shadow: 2px 2px #000000">{{i.title}}</h5>
-									<p style="text-shadow: 2px 2px #000000">Fuente: {{i.source}}</p>
-								</div>
-							</div>
-						  </div>
-						{% endfor %}
-						</div>
-						<a class="carousel-control-prev" href="#carousel5" role="button" data-slide="prev">
-						  <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-						  <span class="sr-only">Previous</span>
-						</a>
-						<a class="carousel-control-next" href="#carousel5" role="button" data-slide="next">
-						  <span class="carousel-control-next-icon" aria-hidden="true"></span>
-						  <span class="sr-only">Next</span>
-						</a>
-					</div>
-				</div>
-				{% endif %}
-				{% if last_bv_news %}
-				<div class="col-sm-12 col-md-6 col-lg-6 col-xl-4 mr-auto mb-3 rounded-lg">
-					<div id="carousel6" class="carousel slide" data-ride="carousel" data-interval="10000">
-						<ol class="carousel-indicators">
-						{% for i in last_bv_news %}
-						  <li data-target="#carousel6" data-slide-to="{{forloop.counter}}" {% if forloop.counter == 1 %}class="active"{% else %}{% endif %}></li>
-						{% endfor %}
-						</ol>
-						<div class="carousel-inner">
-						{% for i in last_bv_news %}
-						  <div class="carousel-item {% if forloop.counter == 1 %}active{% else %}{% endif %}">
-							<div class="container-fluid">
-								<a href="{{i.news_link}}" target="_blank"><img class="img-fluid" style="width: 700px !important;height: 250px !important;" src="{{i.image}}" alt="{{forloop.counter}}"></a>
-								<div class="carousel-caption d-none d-block">
-									<h6 style="text-shadow: 2px 2px #000000">{{i.title}}</h5>
-									<p style="text-shadow: 2px 2px #000000">Fuente: {{i.source}}</p>
-								</div>
-							</div>
-						  </div>
-						{% endfor %}
-						</div>
-						<a class="carousel-control-prev" href="#carousel6" role="button" data-slide="prev">
-						  <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-						  <span class="sr-only">Previous</span>
-						</a>
-						<a class="carousel-control-next" href="#carousel6" role="button" data-slide="next">
-						  <span class="carousel-control-next-icon" aria-hidden="true"></span>
-						  <span class="sr-only">Next</span>
-						</a>
-					</div>
-				</div>
-				{% endif %}
-			</div>
-		</div>
-	</section>
-	<section class="page-section portfolio" style="background-color:#00418b!important" id="uv">
-	    <div class="container-fluid">
-	        <!-- Portfolio Section Heading-->
-	        <div class="text-center" style="margin: 70px 0px 0px 0px !important;">
-	            <h2 class="page-section-heading mb-0 d-inline-block" style="color:#f7bc00!important">Últimos videos</h2>
-	        </div>
-	        <!-- Icon Divider-->
-	        <div class="divider-custom divider-light">
-	            <div class="divider-custom-line"></div>
-	            <div class="divider-custom-icon"><img class="img-fluid" src="{% static 'blog/assets/img/icono_thumb.png' %}" alt="Logo"></div>
-	            <div class="divider-custom-line"></div>
-	        </div>
-			<div class="row no-gutters">
-				{% for i in last_videos %}
-				<div class="col-sm-12 col-md-6 col-lg-6 col-xl-3 mr-auto mb-3 rounded-lg" style="background-color:#043d6e;background-clip: padding-box;border: 5px solid transparent!important">
-					<iframe class="embed-responsive embed-responsive-16by9 embed-responsive-item rounded-top" height="280" frameborder="0" src="{{i.embed}}" title="YouTube video player" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-					<div class="card-body">
-						<h6 class="card-title mb-4"><a style="color:#f7bc00!important" href="{{i.link}}" target="_blank">{{i.title}}</a></h6>
-						<p class="card-text"><small class="text-muted" style="color:#ffffff!important; position:absolute;bottom:1px;right:5px;margin:0;padding:5px 15px;"><a style="color:#ffffff!important" href="{{i.channel_link}}" target="_blank">Canal: {{i.channel_title}}</a></small></p>
-					</div>
-				</div>
-				{% endfor %}
-			</div>
-	    </div>
-	</section>
-	{% if tyc_news %}
-	<section class="page-section portfolio" style="background-color:#00418b!important" id="tyc">
-	    <div class="container-fluid">
-	        <!-- Portfolio Section Heading-->
-	        <div class="text-center" style="margin: 70px 0px 0px 0px !important;">
-	            <h2 class="page-section-heading mb-0 d-inline-block" style="color:#f7bc00!important">{{tyc_title}}</h2>
-	        </div>
-	        <!-- Icon Divider-->
-	        <div class="divider-custom divider-light">
-	            <div class="divider-custom-line"></div>
-	            <div class="divider-custom-icon"><img class="img-fluid" src="{% static 'blog/assets/img/icono_thumb.png' %}" alt="Logo"></div>
-	            <div class="divider-custom-line"></div>
-	        </div>
-			<div class="row no-gutters">
-				{% for i in tyc_news %}
-				<div class="col-sm-12 col-md-6 col-lg-6 col-xl-3 mr-auto mb-3 rounded-lg" style="background-color:#043d6e;background-clip: padding-box;border: 5px solid transparent!important">
-					<a href="{{i.news_link}}" target="_blank"><img class="card-img-top" src="{{i.image}}" style="height: 200px !important;" alt="Card image cap"></a>
-					<div class="card-body">
-					<h6 class="card-title mb-4"><a style="color:#f7bc00!important" href="{{i.news_link}}" target="_blank">{{i.title}}</a></h6>
-					<p class="card-text"><small class="text-muted" style="color:#ffffff!important; position:absolute;bottom:1px;left:5px;margin:0;padding:5px 15px;"></small></p>
-					<p class="card-text"><small class="text-muted" style="color:#ffffff!important; position:absolute;bottom:1px;right:5px;margin:0;padding:5px 15px;"><a style="color:#ffffff!important" href="{{tyc_web}}" target="_blank">Fuente: {{i.source}}</a></small></p>
-					</div>
-				</div>
-				{% endfor %}
-			</div>
-	    </div>
-	</section>
-	{% endif %}
-	{% if ole_news %}
-	<section class="page-section portfolio" style="background-color:#00418b!important" id="ole">
-	    <div class="container-fluid">
-			<!-- Portfolio Section Heading-->
-	        <div class="text-center" style="margin: 70px 0px 0px 0px !important;">
-	            <h2 class="page-section-heading mb-0 d-inline-block" style="color:#f7bc00!important">{{ole_title}}</h2>
-	        </div>
-	        <!-- Icon Divider-->
-	        <div class="divider-custom divider-light">
-	            <div class="divider-custom-line"></div>
-	            <div class="divider-custom-icon"><img class="img-fluid" src="{% static 'blog/assets/img/icono_thumb.png' %}" alt="Logo"></div>
-	            <div class="divider-custom-line"></div>
-	        </div>
-	        <div class="row no-gutters">
-				{% for i in ole_news %}
-				<div class="col-sm-12 col-md-6 col-lg-6 col-xl-3 mr-auto mb-3 rounded-lg" style="background-color:#043d6e;background-clip: padding-box;border: 5px solid transparent!important">
-					<a href="{{i.news_link}}" target="_blank"><img class="card-img-top" src="{{i.image}}" style="height: 200px !important;" alt="Card image cap"></a>
-					<div class="card-body">
-					<h6 class="card-title mb-4"><a style="color:#f7bc00!important" href="{{i.news_link}}" target="_blank">{{i.title}}</a></h6>
-					<p class="card-text"><small class="text-muted" style="color:#ffffff!important; position:absolute;bottom:1px;left:5px;margin:0;padding:5px 15px;"></small></p>
-					<p class="card-text"><small class="text-muted" style="color:#ffffff!important; position:absolute;bottom:1px;right:5px;margin:0;padding:5px 15px;"><a style="color:#ffffff!important" href="{{ole_web}}" target="_blank">Fuente: {{i.source}}</a></small></p>
-					</div>
-				</div>
-				{% endfor %}
-			</div>
-		</div>
-	</section>
-	{% endif %}
-	{% if as_news %}
-	<section class="page-section portfolio" style="background-color:#00418b!important" id="as">
-	    <div class="container-fluid">
-			<!-- Portfolio Section Heading-->
-			<div class="text-center" style="margin: 70px 0px 0px 0px !important;">
-				<h2 class="page-section-heading mb-0 d-inline-block" style="color:#f7bc00!important">{{as_title}}</h2>
-			</div>
-			<!-- Icon Divider-->
-			<div class="divider-custom divider-light">
-				<div class="divider-custom-line"></div>
-				<div class="divider-custom-icon"><img class="img-fluid" src="{% static 'blog/assets/img/icono_thumb.png' %}" alt="Logo"></div>
-				<div class="divider-custom-line"></div>
-			</div>
-			<div class="row no-gutters">
-				{% for i in as_news %}
-				<div class="col-sm-12 col-md-6 col-lg-6 col-xl-3 mr-auto mb-3 rounded-lg" style="background-color:#043d6e;background-clip: padding-box;border: 5px solid transparent!important">
-					<a href="{{i.news_link}}" target="_blank"><img class="card-img-top" src="{{i.image}}" style="height: 200px !important;" alt="Card image cap"></a>
-					<div class="card-body">
-					<h6 class="card-title mb-4"><a style="color:#f7bc00!important" href="{{i.news_link}}" target="_blank">{{i.title}}</a></h6>
-					<p class="card-text"><small class="text-muted" style="color:#ffffff!important; position:absolute;bottom:1px;left:5px;margin:0;padding:5px 15px;"></small></p>
-					<p class="card-text"><small class="text-muted" style="color:#ffffff!important; position:absolute;bottom:1px;right:5px;margin:0;padding:5px 15px;"><a style="color:#ffffff!important" href="{{as_web}}" target="_blank">Fuente: {{i.source}}</a></small></p>
-					</div>
-				</div>
-				{% endfor %}
-			</div>
-		</div>
-	</section>
-	{% endif %}
-	{% if infobae_news %}
-	<section class="page-section portfolio" style="background-color:#00418b!important" id="infobae">
-	    <div class="container-fluid">
-			<!-- Portfolio Section Heading-->
-			<div class="text-center" style="margin: 70px 0px 0px 0px !important;">
-				<h2 class="page-section-heading mb-0 d-inline-block" style="color:#f7bc00!important">{{infobae_title}}</h2>
-			</div>
-			<!-- Icon Divider-->
-			<div class="divider-custom divider-light">
-				<div class="divider-custom-line"></div>
-				<div class="divider-custom-icon"><img class="img-fluid" src="{% static 'blog/assets/img/icono_thumb.png' %}" alt="Logo"></div>
-				<div class="divider-custom-line"></div>
-			</div>
-			<div class="row no-gutters">
-				{% for i in infobae_news %}
-				<div class="col-sm-12 col-md-6 col-lg-6 col-xl-3 mr-auto mb-3 rounded-lg" style="background-color:#043d6e;background-clip: padding-box;border: 5px solid transparent!important">
-					<a href="{{i.news_link}}" target="_blank"><img class="card-img-top" src="{{i.image}}" style="height: 200px !important;" alt="Card image cap"></a>
-					<div class="card-body">
-					<h6 class="card-title mb-4"><a style="color:#f7bc00!important" href="{{i.news_link}}" target="_blank">{{i.title}}</a></h6>
-					<p class="card-text"><small class="text-muted" style="color:#ffffff!important; position:absolute;bottom:1px;left:5px;margin:0;padding:5px 15px;"></small></p>
-					<p class="card-text"><small class="text-muted" style="color:#ffffff!important; position:absolute;bottom:1px;right:5px;margin:0;padding:5px 15px;"><a style="color:#ffffff!important" href="{{infobae_web}}" target="_blank">Fuente: {{i.source}}</a></small></p>
-					</div>
-				</div>
-				{% endfor %}
-			</div>
-		</div>
-	</section>
-	{% endif %}
-	{% if ln_news %}
-	<section class="page-section portfolio" style="background-color:#00418b!important" id="ln">
-	    <div class="container-fluid">
-			<!-- Portfolio Section Heading-->
-			<div class="text-center" style="margin: 70px 0px 0px 0px !important;">
-				<h2 class="page-section-heading mb-0 d-inline-block" style="color:#f7bc00!important">{{ln_title}}</h2>
-			</div>
-			<!-- Icon Divider-->
-			<div class="divider-custom divider-light">
-				<div class="divider-custom-line"></div>
-				<div class="divider-custom-icon"><img class="img-fluid" src="{% static 'blog/assets/img/icono_thumb.png' %}" alt="Logo"></div>
-				<div class="divider-custom-line"></div>
-			</div>
-			<div class="row no-gutters">
-				{% for i in ln_news %}
-				<div class="col-sm-12 col-md-6 col-lg-6 col-xl-3 mr-auto mb-3 rounded-lg" style="background-color:#043d6e;background-clip: padding-box;border: 5px solid transparent!important">
-					<a href="{{i.news_link}}" target="_blank"><img class="card-img-top" src="{{i.image}}" style="height: 200px !important;" alt="Card image cap"></a>
-					<div class="card-body">
-					<h6 class="card-title mb-4"><a style="color:#f7bc00!important" href="{{i.news_link}}" target="_blank">{{i.title}}</a></h6>
-					<p class="card-text"><small class="text-muted" style="color:#ffffff!important; position:absolute;bottom:1px;left:5px;margin:0;padding:5px 15px;"></small></p>
-					<p class="card-text"><small class="text-muted" style="color:#ffffff!important; position:absolute;bottom:1px;right:5px;margin:0;padding:5px 15px;"><a style="color:#ffffff!important" href="{{ln_web}}" target="_blank">Fuente: {{i.source}}</a></small></p>
-					</div>
-				</div>
-				{% endfor %}
-			</div>
-		</div>
-	</section>
-	{% endif %}
-	{% if bv_news %}
-	<section class="page-section portfolio" style="background-color:#00418b!important" id="bv">
-	    <div class="container-fluid">
-			<!-- Portfolio Section Heading-->
-			<div class="text-center" style="margin: 70px 0px 0px 0px !important;">
-				<h2 class="page-section-heading mb-0 d-inline-block" style="color:#f7bc00!important">{{bv_title}}</h2>
-			</div>
-			<!-- Icon Divider-->
-			<div class="divider-custom divider-light">
-				<div class="divider-custom-line"></div>
-				<div class="divider-custom-icon"><img class="img-fluid" src="{% static 'blog/assets/img/icono_thumb.png' %}" alt="Logo"></div>
-				<div class="divider-custom-line"></div>
-			</div>
-			<div class="row no-gutters">
-				{% for i in bv_news %}
-				<div class="col-sm-12 col-md-6 col-lg-6 col-xl-3 mr-auto mb-3 rounded-lg" style="background-color:#043d6e;background-clip: padding-box;border: 5px solid transparent!important">
-					<a href="{{i.news_link}}" target="_blank"><img class="card-img-top" src="{{i.image}}" style="height: 200px !important;" alt="Card image cap"></a>
-					<div class="card-body">
-					<h6 class="card-title mb-4"><a style="color:#f7bc00!important" href="{{i.news_link}}" target="_blank">{{i.title}}</a></h6>
-					<p class="card-text"><small class="text-muted" style="color:#ffffff!important; position:absolute;bottom:1px;left:5px;margin:0;padding:5px 15px;"></small></p>
-					<p class="card-text"><small class="text-muted" style="color:#ffffff!important; position:absolute;bottom:1px;right:5px;margin:0;padding:5px 15px;"><a style="color:#ffffff!important" href="{{bv_web}}" target="_blank">Fuente: {{i.source}}</a></small></p>
-					</div>
-				</div>
-				{% endfor %}
-			</div>
-		</div>
-	</section>
-	{% endif %}
-	{% if mbtv_videos %}
-	<section class="page-section portfolio" style="background-color:#00418b!important" id="mbtv-videos">
-	    <div class="container-fluid">
-	        <!-- Portfolio Section Heading-->
-	        <div class="text-center" style="margin: 70px 0px 0px 0px !important;">
-	            <h2 class="page-section-heading mb-0 d-inline-block" style="color:#f7bc00!important">{{mbtv_title}}</h2>
-	        </div>
-	        <!-- Icon Divider-->
-	        <div class="divider-custom divider-light">
-	            <div class="divider-custom-line"></div>
-	            <div class="divider-custom-icon"><img class="img-fluid" src="{% static 'blog/assets/img/icono_thumb.png' %}" alt="Logo"></div>
-	            <div class="divider-custom-line"></div>
-	        </div>
-			<div class="row no-gutters">
-				{% for i in mbtv_videos %}
-				<div class="col-sm-12 col-md-6 col-lg-6 col-xl-3 mr-auto mb-3 rounded-lg" style="background-color:#043d6e;background-clip: padding-box;border: 5px solid transparent!important">
-					<iframe class="embed-responsive embed-responsive-16by9 embed-responsive-item rounded-top" height="280" frameborder="0" src="{{i.embed}}" title="YouTube video player" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-					<div class="card-body">
-						<h6 class="card-title mb-4"><a style="color:#f7bc00!important" href="{{i.link}}" target="_blank">{{i.title}}</a></h6>
-						<p class="card-text"><small class="text-muted" style="color:#ffffff!important; position:absolute;bottom:1px;right:5px;margin:0;padding:5px 15px;"><a style="color:#ffffff!important" href="{{mbtv_channel}}" target="_blank">Canal: {{mbtv_title}}</a></small></p>
-					</div>
-				</div>
-				{% endfor %}
-			</div>
-	    </div>
-	</section>
-	{% endif %}
-	{% if ax_videos %}
-	<section class="page-section portfolio" style="background-color:#00418b!important" id="ax-videos">
-	    <div class="container-fluid">
-	        <!-- Portfolio Section Heading-->
-	        <div class="text-center" style="margin: 70px 0px 0px 0px !important;">
-	            <h2 class="page-section-heading mb-0 d-inline-block" style="color:#f7bc00!important">{{ax_title}}</h2>
-	        </div>
-	        <!-- Icon Divider-->
-	        <div class="divider-custom divider-light">
-	            <div class="divider-custom-line"></div>
-	            <div class="divider-custom-icon"><img class="img-fluid" src="{% static 'blog/assets/img/icono_thumb.png' %}" alt="Logo"></div>
-	            <div class="divider-custom-line"></div>
-	        </div>
-			<div class="row no-gutters">
-				{% for i in ax_videos %}
-				<div class="col-sm-12 col-md-6 col-lg-6 col-xl-3 mr-auto mb-3 rounded-lg" style="background-color:#043d6e;background-clip: padding-box;border: 5px solid transparent!important">
-					<iframe class="embed-responsive embed-responsive-16by9 embed-responsive-item rounded-top" height="280" frameborder="0" src="{{i.embed}}" title="YouTube video player" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-					<div class="card-body">
-						<h6 class="card-title mb-4"><a style="color:#f7bc00!important" href="{{i.link}}" target="_blank">{{i.title}}</a></h6>
-						<p class="card-text"><small class="text-muted" style="color:#ffffff!important; position:absolute;bottom:1px;right:5px;margin:0;padding:5px 15px;"><a style="color:#ffffff!important" href="{{ax_channel}}" target="_blank">Canal: {{ax_title}}</a></small></p>
-					</div>
-				</div>
-				{% endfor %}
-			</div>
-	    </div>
-	</section>
-	{% endif %}
-	{% if cabj_videos %}
-	<section class="page-section portfolio" style="background-color:#00418b!important" id="cabj-videos">
-	    <div class="container-fluid">
-	        <!-- Portfolio Section Heading-->
-	        <div class="text-center" style="margin: 70px 0px 0px 0px !important;">
-	            <h2 class="page-section-heading mb-0 d-inline-block" style="color:#f7bc00!important">{{cabj_title}}</h2>
-	        </div>
-	        <!-- Icon Divider-->
-	        <div class="divider-custom divider-light">
-	            <div class="divider-custom-line"></div>
-	            <div class="divider-custom-icon"><img class="img-fluid" src="{% static 'blog/assets/img/icono_thumb.png' %}" alt="Logo"></div>
-	            <div class="divider-custom-line"></div>
-	        </div>
-			<div class="row no-gutters">
-				{% for i in cabj_videos %}
-				<div class="col-sm-12 col-md-6 col-lg-6 col-xl-3 mr-auto mb-3 rounded-lg" style="background-color:#043d6e;background-clip: padding-box;border: 5px solid transparent!important">
-					<iframe class="embed-responsive embed-responsive-16by9 embed-responsive-item rounded-top" height="280" frameborder="0" src="{{i.embed}}" title="YouTube video player" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-					<div class="card-body">
-						<h6 class="card-title mb-4"><a style="color:#f7bc00!important" href="{{i.link}}" target="_blank">{{i.title}}</a></h6>
-						<p class="card-text"><small class="text-muted" style="color:#ffffff!important; position:absolute;bottom:1px;right:5px;margin:0;padding:5px 15px;"><a style="color:#ffffff!important" href="{{cabj_channel}}" target="_blank">Canal: {{cabj_title}}</a></small></p>
-					</div>
-				</div>
-				{% endfor %}
-			</div>
-	    </div>
-	</section>
-	{% endif %}
-	{% if ax2_videos %}
-	<section class="page-section portfolio" style="background-color:#00418b!important" id="ax2-videos">
-	    <div class="container-fluid">
-	        <!-- Portfolio Section Heading-->
-	        <div class="text-center" style="margin: 70px 0px 0px 0px !important;">
-	            <h2 class="page-section-heading mb-0 d-inline-block" style="color:#f7bc00!important">{{ax2_title}}</h2>
-	        </div>
-	        <!-- Icon Divider-->
-	        <div class="divider-custom divider-light">
-	            <div class="divider-custom-line"></div>
-	            <div class="divider-custom-icon"><img class="img-fluid" src="{% static 'blog/assets/img/icono_thumb.png' %}" alt="Logo"></div>
-	            <div class="divider-custom-line"></div>
-	        </div>
-			<div class="row no-gutters">
-				{% for i in ax2_videos %}
-				<div class="col-sm-12 col-md-6 col-lg-6 col-xl-3 mr-auto mb-3 rounded-lg" style="background-color:#043d6e;background-clip: padding-box;border: 5px solid transparent!important">
-					<iframe class="embed-responsive embed-responsive-16by9 embed-responsive-item rounded-top" height="280" frameborder="0" src="{{i.embed}}" title="YouTube video player" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-					<div class="card-body">
-						<h6 class="card-title mb-4"><a style="color:#f7bc00!important" href="{{i.link}}" target="_blank">{{i.title}}</a></h6>
-						<p class="card-text"><small class="text-muted" style="color:#ffffff!important; position:absolute;bottom:1px;right:5px;margin:0;padding:5px 15px;"><a style="color:#ffffff!important" href="{{ax2_channel}}" target="_blank">Canal: {{ax2_title}}</a></small></p>
-					</div>
-				</div>
-				{% endfor %}
-			</div>
-	    </div>
-	</section>
-	{% endif %}
-	{% if ta_videos %}
-	<section class="page-section portfolio" style="background-color:#00418b!important" id="ta-videos">
-	    <div class="container-fluid">
-	        <!-- Portfolio Section Heading-->
-	        <div class="text-center" style="margin: 70px 0px 0px 0px !important;">
-	            <h2 class="page-section-heading mb-0 d-inline-block" style="color:#f7bc00!important">{{ta_title}}</h2>
-	        </div>
-	        <!-- Icon Divider-->
-	        <div class="divider-custom divider-light">
-	            <div class="divider-custom-line"></div>
-	            <div class="divider-custom-icon"><img class="img-fluid" src="{% static 'blog/assets/img/icono_thumb.png' %}" alt="Logo"></div>
-	            <div class="divider-custom-line"></div>
-	        </div>
-			<div class="row no-gutters">
-				{% for i in ta_videos %}
-				<div class="col-sm-12 col-md-6 col-lg-6 col-xl-3 mr-auto mb-3 rounded-lg" style="background-color:#043d6e;background-clip: padding-box;border: 5px solid transparent!important">
-					<iframe class="embed-responsive embed-responsive-16by9 embed-responsive-item rounded-top" height="280" frameborder="0" src="{{i.embed}}" title="YouTube video player" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-					<div class="card-body">
-						<h6 class="card-title mb-4"><a style="color:#f7bc00!important" href="{{i.link}}" target="_blank">{{i.title}}</a></h6>
-						<p class="card-text"><small class="text-muted" style="color:#ffffff!important; position:absolute;bottom:1px;right:5px;margin:0;padding:5px 15px;"><a style="color:#ffffff!important" href="{{ta_channel}}" target="_blank">Canal: {{ta_title}}</a></small></p>
-					</div>
-				</div>
-				{% endfor %}
-			</div>
-	    </div>
-	</section>
-	{% endif %}
-	{% if esdb_videos %}
-	<section class="page-section portfolio" style="background-color:#00418b!important" id="esdb-videos">
-	    <div class="container-fluid">
-	        <!-- Portfolio Section Heading-->
-	        <div class="text-center" style="margin: 70px 0px 0px 0px !important;">
-	            <h2 class="page-section-heading mb-0 d-inline-block" style="color:#f7bc00!important">{{esdb_title}}</h2>
-	        </div>
-	        <!-- Icon Divider-->
-	        <div class="divider-custom divider-light">
-	            <div class="divider-custom-line"></div>
-	            <div class="divider-custom-icon"><img class="img-fluid" src="{% static 'blog/assets/img/icono_thumb.png' %}" alt="Logo"></div>
-	            <div class="divider-custom-line"></div>
-	        </div>
-			<div class="row no-gutters">
-				{% for i in esdb_videos %}
-				<div class="col-sm-12 col-md-6 col-lg-6 col-xl-3 mr-auto mb-3 rounded-lg" style="background-color:#043d6e;background-clip: padding-box;border: 5px solid transparent!important">
-					<iframe class="embed-responsive embed-responsive-16by9 embed-responsive-item rounded-top" height="280" frameborder="0" src="{{i.embed}}" title="YouTube video player" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-					<div class="card-body">
-						<h6 class="card-title mb-4"><a style="color:#f7bc00!important" href="{{i.link}}" target="_blank">{{i.title}}</a></h6>
-						<p class="card-text"><small class="text-muted" style="color:#ffffff!important; position:absolute;bottom:1px;right:5px;margin:0;padding:5px 15px;"><a style="color:#ffffff!important" href="{{esdb_channel}}" target="_blank">Canal: Fútbol de los Grandes</a></small></p>
-					</div>
-				</div>
-				{% endfor %}
-			</div>
-	    </div>
-	</section>
-	{% endif %}
-{% endblock %}
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <meta name="description" content="" />
+        <meta name="author" content="" />
+        <link rel="icon" type="image/png" href="{% static 'blog/assets/img/icono_thumb.png' %}">
+        <title>{{ nombre_sitio }}</title>
+        <link rel="icon" type="image/x-icon" href="assets/img/favicon.ico" />
+        <!-- Font Awesome icons (free version)-->
+        <script src="https://use.fontawesome.com/releases/v5.15.4/js/all.js" crossorigin="anonymous"></script>
+        <!-- Google fonts-->
+        <link href="https://fonts.googleapis.com/css?family=Saira+Extra+Condensed:500,700" rel="stylesheet" type="text/css" />
+        <link href="https://fonts.googleapis.com/css?family=Muli:400,400i,800,800i" rel="stylesheet" type="text/css" />
+        <!-- Core theme CSS (includes Bootstrap)-->
+        <link rel="stylesheet" href="{% static 'prueba/css/styles.css' %}">
+        <link rel="stylesheet" href="{% static 'blog/css/buttons.css' %}">
+    </head>
+    <body id="page-top">
+        <!-- Navigation-->
+        <nav class="navbar navbar-expand-lg navbar-dark bg-secondary fixed-top text-center" id="sideNav" style="background-color:#043d6e!important">
+            <a class="navbar-brand js-scroll-trigger" href="#page-top">
+                <span class="d-block d-sm-block d-md-block d-lg-block d-xl-block"><img class="img-fluid mx-auto mb-2" src="{% static 'blog/assets/img/icono.png' %}" alt="..." /></span>
+            </a>
+            <h4 class="mt-2" style="color:#f7bc00!important;">
+                Blog Xeneize
+            </h4>
+            <button class="navbar-toggler" style="background-color:#f7bc00!important;color:#00418b!important" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation"><i class="fas fa-star mt-2 ml-2 mr-2 mb-2" style="background-color:#f7bc00!important;"></i></button>
+            <div class="collapse navbar-collapse" id="navbarResponsive" style="padding-right: var(--bs-gutter-x, 0.75rem); padding-left: var(--bs-gutter-x, 0.75rem);">
+                <div class="container d-flex align-items-center text-center">
+                    <ul class="navbar-nav mx-auto">
+                        <li class="nav-item"><a class="nav-link rounded js-scroll-trigger mt-2 btn btn-sm btn-default font-weight-bold" href="#inicio">Inicio <i class="fas fa-star"></i></a></li>
+                        <li class="nav-item"><a class="nav-link rounded js-scroll-trigger mt-2 btn btn-sm btn-default font-weight-bold" href="#un">Últimas Noticias</a></li>
+                        {% if last_videos %}
+                        <li class="nav-item"><a class="nav-link rounded js-scroll-trigger mt-2 btn btn-sm btn-default font-weight-bold" href="#uv">Últimos Videos</a></li>
+                        {% endif %}
+                        {% if tyc_news %}
+                        <li class="nav-item"><a class="nav-link rounded js-scroll-trigger mt-2 btn btn-sm btn-default font-weight-bold" href="#tyc">TyC Sports</a></li>
+                        {% endif %}
+                        {% if ole_news %}
+                        <li class="nav-item"><a class="nav-link rounded js-scroll-trigger mt-2 btn btn-sm btn-default font-weight-bold" href="#ole">Diario Olé</a></li>
+                        {% endif %}
+                        {% if as_news %}
+                        <li class="nav-item"><a class="nav-link rounded js-scroll-trigger mt-2 btn btn-sm btn-default font-weight-bold" href="#as">AS Argentina</a></li>
+                        {% endif %}
+                        {% if infobae_news %}
+                        <li class="nav-item"><a class="nav-link rounded js-scroll-trigger mt-2 btn btn-sm btn-default font-weight-bold" href="#infobae">Portal Infobae</a></li>
+                        {% endif %}
+                        {% if ln_news %}
+                        <li class="nav-item"><a class="nav-link rounded js-scroll-trigger mt-2 btn btn-sm btn-default font-weight-bold" href="#ln">La Nación</a></li>
+                        {% endif %}
+                        {% if bv_news %}
+                        <li class="nav-item"><a class="nav-link rounded js-scroll-trigger mt-2 btn btn-sm btn-default font-weight-bold" href="#bv">Bola Vip</a></li>
+                        {% endif %}
+                        <li class="nav-item"><a class="nav-link rounded js-scroll-trigger mt-2 btn btn-sm btn-default font-weight-bold" href="#contact">Contacto <i class="fas fa-star"></i></a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+        <!-- Page Content-->
+        <div class="container-fluid p-0" style="background-color:#f7bc00!important">
+            <header class="masthead text-white text-center" style="background-image: url({% static 'blog/assets/img/background.png' %});margin: 0px 0px 0px 0px !important;background-position: center;background-repeat: no-repeat;-moz-background-size: cover;-o-background-size: cover;background-size: cover" id="inicio">
+                <div class="container-fluyd">
+                    <!-- Masthead Avatar Image-->
+                    <div class="container d-flex align-items-center flex-column" style="height:100vh;">
+                        <img class="img-fluid" src="{% static 'blog/assets/img/icono_grande.png' %}" alt="Logo" style="margin-top: 6em;">
+                        <!-- Masthead Heading-->
+                        <h1 class="text-white mt-2" style="text-shadow: 3px 3px #043d6e;color:#f7bc00!important">Blog Xeneize</h1>
+                        <!-- Icon Divider-->
+                        <div class="divider-custom divider-light">
+                            <div class="divider-custom-line"></div>
+                            <div class="divider-custom-icon"><i class="far fa-newspaper"></i></div>
+                            <div class="divider-custom-line"></div>
+                        </div>
+                        <!-- Masthead Subheading-->
+                        <h4 class="pre-wrap masthead-subheading font-weight-bold text-white" style="text-shadow: 3px 3px #000000">Últimas noticias de Boca Juniors</h4>
+                    </div>
+                </div>
+            </header>
+            <section class="page-section portfolio" style="background-color:#00418b!important; padding-top: 6rem;" id="un">
+                <div class="container-fluid">
+                    <!-- Portfolio Section Heading-->
+                    <div class="text-center">
+                        <h2 class="page-section-heading mb-0 d-inline-block" style="color:#f7bc00!important">Últimas noticias</h2>
+                    </div>
+                    <!-- Icon Divider-->
+                    <div class="divider-custom divider-light">
+                        <div class="divider-custom-line"></div>
+                        <div class="divider-custom-icon"><img class="img-fluid" src="{% static 'blog/assets/img/icono_thumb.png' %}" alt="Logo"></div>
+                        <div class="divider-custom-line"></div>
+                    </div>
+                    <div class="row no-gutters" style="margin-left: 0rem !important; margin-right: 0rem !important">
+                        {% if last_tyc_news %}
+                        <div class="col-sm-12 col-md-6 col-lg-6 col-xl-4 mr-auto rounded-lg">
+                        <div id="carousel1" class="carousel slide" data-bs-ride="carousel" data-bs-interval="10000">
+                            <div class="carousel-indicators">
+                            {% for i in last_tyc_news %}
+                              <button type="button" data-bs-target="#carousel1" data-bs-slide-to="{{forloop.counter0}}" {% if forloop.counter0 == 0 %}class="active" aria-current="true"{% else %}{% endif %} aria-label="Slide {{forloop.counter}}"></button>
+                            {% endfor %}
+                            </div>
+                            <div class="carousel-inner">
+                            {% for i in last_tyc_news %}
+                              <div class="carousel-item {% if forloop.counter0 == 0 %}active{% else %}{% endif %}">
+                                <a href="{{i.news_link}}" target="_blank"><img class="img-fluid" style="width: 100% !important; object-fit: cover !important;height: 260px !important;" src="{{i.image}}" alt="{{forloop.counter0}}"></a>
+                                <div class="carousel-caption" style="padding-bottom: 0rem !important;">
+                                    <h5 class="text-white" style="margin-bottom: 2rem !important;text-shadow: 2px 2px #000000">{{i.title}}</h5>
+                                    <p class="text-white" style="text-shadow: 2px 2px #000000">Fuente: {{i.source}}</p>
+                                </div>
+                              </div>
+                            {% endfor %}
+                            </div>
+                            <button class="carousel-control-prev" type="button" data-bs-target="#carousel1" data-bs-slide="prev">
+                              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                              <span class="visually-hidden">Previous</span>
+                            </button>
+                            <button class="carousel-control-next" type="button" data-bs-target="#carousel1" data-bs-slide="next">
+                              <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                              <span class="visually-hidden">Next</span>
+                            </button>
+                          </div>
+                        </div>
+                        {% endif %}
+                        {% if last_ole_news %}
+                        <div class="col-sm-12 col-md-6 col-lg-6 col-xl-4 mr-auto rounded-lg">
+                            <div id="carousel2" class="carousel slide" data-bs-ride="carousel" data-bs-interval="10000">
+                                <div class="carousel-indicators">
+                                {% for i in last_ole_news %}
+                                  <button type="button" data-bs-target="#carousel2" data-bs-slide-to="{{forloop.counter0}}" {% if forloop.counter0 == 0 %}class="active" aria-current="true"{% else %}{% endif %} aria-label="Slide {{forloop.counter}}"></button>
+                                {% endfor %}
+                                </div>
+                                <div class="carousel-inner">
+                                {% for i in last_ole_news %}
+                                  <div class="carousel-item {% if forloop.counter0 == 0 %}active{% else %}{% endif %}">
+                                    <a href="{{i.news_link}}" target="_blank"><img class="img-fluid" style="width: 100% !important; object-fit: cover !important;height: 260px !important;" src="{{i.image}}" alt="{{forloop.counter0}}"></a>
+                                    <div class="carousel-caption" style="padding-bottom: 0rem !important;">
+                                        <h5 class="text-white" style="margin-bottom: 2rem !important;text-shadow: 2px 2px #000000">{{i.title}}</h5>
+                                        <p class="text-white" style="text-shadow: 2px 2px #000000">Fuente: {{i.source}}</p>
+                                    </div>
+                                  </div>
+                                {% endfor %}
+                                </div>
+                                <button class="carousel-control-prev" type="button" data-bs-target="#carousel2" data-bs-slide="prev">
+                                  <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                  <span class="visually-hidden">Previous</span>
+                                </button>
+                                <button class="carousel-control-next" type="button" data-bs-target="#carousel2" data-bs-slide="next">
+                                  <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                  <span class="visually-hidden">Next</span>
+                                </button>
+                              </div>
+                            </div>
+                        {% endif %}
+                        {% if last_as_news %}
+                        <div class="col-sm-12 col-md-6 col-lg-6 col-xl-4 mr-auto rounded-lg">
+                            <div id="carousel3" class="carousel slide" data-bs-ride="carousel" data-bs-interval="10000">
+                                <div class="carousel-indicators">
+                                {% for i in last_as_news %}
+                                  <button type="button" data-bs-target="#carousel3" data-bs-slide-to="{{forloop.counter0}}" {% if forloop.counter0 == 0 %}class="active" aria-current="true"{% else %}{% endif %} aria-label="Slide {{forloop.counter}}"></button>
+                                {% endfor %}
+                                </div>
+                                <div class="carousel-inner">
+                                {% for i in last_as_news %}
+                                  <div class="carousel-item {% if forloop.counter0 == 0 %}active{% else %}{% endif %}">
+                                    <a href="{{i.news_link}}" target="_blank"><img class="img-fluid" style="width: 100% !important; object-fit: cover !important;height: 260px !important;" src="{{i.image}}" alt="{{forloop.counter0}}"></a>
+                                    <div class="carousel-caption" style="padding-bottom: 0rem !important;">
+                                        <h5 class="text-white" style="margin-bottom: 2rem !important;text-shadow: 2px 2px #000000">{{i.title}}</h5>
+                                        <p class="text-white" style="text-shadow: 2px 2px #000000">Fuente: {{i.source}}</p>
+                                    </div>
+                                  </div>
+                                {% endfor %}
+                                </div>
+                                <button class="carousel-control-prev" type="button" data-bs-target="#carousel3" data-bs-slide="prev">
+                                  <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                  <span class="visually-hidden">Previous</span>
+                                </button>
+                                <button class="carousel-control-next" type="button" data-bs-target="#carousel3" data-bs-slide="next">
+                                  <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                  <span class="visually-hidden">Next</span>
+                                </button>
+                              </div>
+                            </div>
+                        {% endif %}
+                        {% if last_infobae_news %}
+                        <div class="col-sm-12 col-md-6 col-lg-6 col-xl-4 mr-auto rounded-lg">
+                            <div id="carousel4" class="carousel slide" data-bs-ride="carousel" data-bs-interval="10000">
+                                <div class="carousel-indicators">
+                                {% for i in last_infobae_news %}
+                                  <button type="button" data-bs-target="#carousel4" data-bs-slide-to="{{forloop.counter0}}" {% if forloop.counter0 == 0 %}class="active" aria-current="true"{% else %}{% endif %} aria-label="Slide {{forloop.counter}}"></button>
+                                {% endfor %}
+                                </div>
+                                <div class="carousel-inner">
+                                {% for i in last_infobae_news %}
+                                  <div class="carousel-item {% if forloop.counter0 == 0 %}active{% else %}{% endif %}">
+                                    <a href="{{i.news_link}}" target="_blank"><img class="img-fluid" style="width: 100% !important; object-fit: cover !important;height: 260px !important;" src="{{i.image}}" alt="{{forloop.counter0}}"></a>
+                                    <div class="carousel-caption" style="padding-bottom: 0rem !important;">
+                                        <h5 class="text-white" style="margin-bottom: 2rem !important;text-shadow: 2px 2px #000000">{{i.title}}</h5>
+                                        <p class="text-white" style="text-shadow: 2px 2px #000000">Fuente: {{i.source}}</p>
+                                    </div>
+                                  </div>
+                                {% endfor %}
+                                </div>
+                                <button class="carousel-control-prev" type="button" data-bs-target="#carousel4" data-bs-slide="prev">
+                                  <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                  <span class="visually-hidden">Previous</span>
+                                </button>
+                                <button class="carousel-control-next" type="button" data-bs-target="#carousel4" data-bs-slide="next">
+                                  <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                  <span class="visually-hidden">Next</span>
+                                </button>
+                              </div>
+                            </div>
+                        {% endif %}
+                        {% if last_ln_news %}
+                        <div class="col-sm-12 col-md-6 col-lg-6 col-xl-4 mr-auto rounded-lg">
+                            <div id="carousel5" class="carousel slide" data-bs-ride="carousel" data-bs-interval="10000">
+                                <div class="carousel-indicators">
+                                {% for i in last_ln_news %}
+                                  <button type="button" data-bs-target="#carousel5" data-bs-slide-to="{{forloop.counter0}}" {% if forloop.counter0 == 0 %}class="active" aria-current="true"{% else %}{% endif %} aria-label="Slide {{forloop.counter}}"></button>
+                                {% endfor %}
+                                </div>
+                                <div class="carousel-inner">
+                                {% for i in last_ln_news %}
+                                  <div class="carousel-item {% if forloop.counter0 == 0 %}active{% else %}{% endif %}">
+                                    <a href="{{i.news_link}}" target="_blank"><img class="img-fluid" style="width: 100% !important; object-fit: cover !important;height: 260px !important;" src="{{i.image}}" alt="{{forloop.counter0}}"></a>
+                                    <div class="carousel-caption" style="padding-bottom: 0rem !important;">
+                                        <h5 class="text-white" style="margin-bottom: 2rem !important;text-shadow: 2px 2px #000000">{{i.title}}</h5>
+                                        <p class="text-white" style="text-shadow: 2px 2px #000000">Fuente: {{i.source}}</p>
+                                    </div>
+                                  </div>
+                                {% endfor %}
+                                </div>
+                                <button class="carousel-control-prev" type="button" data-bs-target="#carousel5" data-bs-slide="prev">
+                                  <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                  <span class="visually-hidden">Previous</span>
+                                </button>
+                                <button class="carousel-control-next" type="button" data-bs-target="#carousel5" data-bs-slide="next">
+                                  <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                  <span class="visually-hidden">Next</span>
+                                </button>
+                              </div>
+                            </div>
+                        {% endif %}
+                        {% if last_bv_news %}
+                        <div class="col-sm-12 col-md-6 col-lg-6 col-xl-4 mr-auto rounded-lg">
+                            <div id="carousel6" class="carousel slide" data-bs-ride="carousel" data-bs-interval="10000">
+                                <div class="carousel-indicators">
+                                {% for i in last_bv_news %}
+                                  <button type="button" data-bs-target="#carousel6" data-bs-slide-to="{{forloop.counter0}}" {% if forloop.counter0 == 0 %}class="active" aria-current="true"{% else %}{% endif %} aria-label="Slide {{forloop.counter}}"></button>
+                                {% endfor %}
+                                </div>
+                                <div class="carousel-inner">
+                                {% for i in last_bv_news %}
+                                  <div class="carousel-item {% if forloop.counter0 == 0 %}active{% else %}{% endif %}">
+                                    <a href="{{i.news_link}}" target="_blank"><img class="img-fluid" style="width: 100% !important; object-fit: cover !important;height: 260px !important;" src="{{i.image}}" alt="{{forloop.counter0}}"></a>
+                                    <div class="carousel-caption" style="padding-bottom: 0rem !important;">
+                                        <h5 class="text-white" style="margin-bottom: 2rem !important;text-shadow: 2px 2px #000000">{{i.title}}</h5>
+                                        <p class="text-white" style="text-shadow: 2px 2px #000000">Fuente: {{i.source}}</p>
+                                    </div>
+                                  </div>
+                                {% endfor %}
+                                </div>
+                                <button class="carousel-control-prev" type="button" data-bs-target="#carousel6" data-bs-slide="prev">
+                                  <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                  <span class="visually-hidden">Previous</span>
+                                </button>
+                                <button class="carousel-control-next" type="button" data-bs-target="#carousel6" data-bs-slide="next">
+                                  <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                  <span class="visually-hidden">Next</span>
+                                </button>
+                              </div>
+                            </div>
+                        {% endif %}
+                    </div>
+                </div>
+            </section>
+            {% if last_videos %}
+            <section class="page-section portfolio" style="background-color: #00418b !important; padding-right: var(--bs-gutter-x, 0.75rem); padding-left: var(--bs-gutter-x, 0.75rem); padding-top: 6rem;" id="uv">
+                <div class="container-fluid">
+                    <!-- Portfolio Section Heading-->
+                    <div class="text-center">
+                        <h2 class="page-section-heading mb-0 d-inline-block" style="color:#f7bc00!important">Últimos videos</h2>
+                    </div>
+                    <!-- Icon Divider-->
+                    <div class="divider-custom divider-light">
+                        <div class="divider-custom-line"></div>
+                        <div class="divider-custom-icon"><img class="img-fluid" src="{% static 'blog/assets/img/icono_thumb.png' %}" alt="Logo"></div>
+                        <div class="divider-custom-line"></div>
+                    </div>
+                    <div class="row no-gutters">
+                        {% for i in last_videos %}
+                        <div class="col-sm-12 col-md-6 col-lg-6 col-xl-3 mr-auto mb-3 rounded-lg" style="background-color:#043d6e;background-clip: padding-box;border: 5px solid transparent!important">
+                            <div class="card h-100 border-0" style="background-color:#043d6e;">
+                                <iframe class="embed-responsive embed-responsive-16by9 embed-responsive-item rounded-top" height="280" frameborder="0" src="{{i.embed}}" title="YouTube video player" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                                <div class="card-body">
+                                  <h5 class="card-title"><a style="color:#f7bc00!important" href="{{i.link}}" target="_blank">{{i.title}}</a></h5>
+                                </div>
+                                <div class="card-footer d-flex justify-content-end">
+                                    <small class="text-muted" style="color:#ffffff!important;"><a style="color:#ffffff!important" href="{{i.channel_link}}" target="_blank">Canal: {{i.channel_title}}</a></small>
+                                </div>
+                            </div>
+                        </div>
+                        {% endfor %}
+                    </div>
+                </div>
+            </section>
+            {% endif %}
+            {% if tyc_news %}
+            <section class="page-section portfolio" style="background-color: #00418b !important; padding-right: var(--bs-gutter-x, 0.75rem); padding-left: var(--bs-gutter-x, 0.75rem); padding-top: 6rem;" id="tyc">
+                <div class="container-fluid">
+                    <!-- Portfolio Section Heading-->
+                    <div class="text-center">
+                        <h2 class="page-section-heading d-inline-block" style="color:#f7bc00!important">{{tyc_title}}</h2>
+                    </div>
+                    <!-- Icon Divider-->
+                    <div class="divider-custom divider-light">
+                        <div class="divider-custom-line"></div>
+                        <div class="divider-custom-icon"><img class="img-fluid" src="{% static 'blog/assets/img/icono_thumb.png' %}" alt="Logo"></div>
+                        <div class="divider-custom-line"></div>
+                    </div>
+                    <div class="row no-gutters">
+                        {% for i in tyc_news %}
+                        <div class="col-sm-12 col-md-6 col-lg-6 col-xl-3 mr-auto mb-3 rounded-lg" style="background-color:#043d6e;background-clip: padding-box;border: 5px solid transparent!important">
+                            <div class="card h-100 border-0" style="background-color:#043d6e;">
+                                <a href="{{i.news_link}}" target="_blank"><img class="card-img-top" src="{{i.image}}" style="width: 100% !important; object-fit: cover !important;height: 240px !important;" alt="Card image cap"></a>
+                                <div class="card-body">
+                                  <h5 class="card-title"><a style="color:#f7bc00!important" href="{{i.link}}" target="_blank">{{i.title}}</a></h5>
+                                </div>
+                                <div class="card-footer d-flex justify-content-end">
+                                    <small class="text-muted" style="color:#ffffff!important;"><a style="color:#ffffff!important" href="{{tyc_web}}" target="_blank">Fuente: {{i.source}}</a></small>
+                                </div>
+                            </div>
+                        </div>
+                        {% endfor %}
+                    </div>
+                </div>
+            </section>
+            {% endif %}
+            {% if ole_news %}
+            <section class="page-section portfolio" style="background-color: #00418b !important; padding-right: var(--bs-gutter-x, 0.75rem); padding-left: var(--bs-gutter-x, 0.75rem); padding-top: 6rem;" id="ole">
+                <div class="container-fluid">
+                    <!-- Portfolio Section Heading-->
+                    <div class="text-center">
+                        <h2 class="page-section-heading mb-0 d-inline-block" style="color:#f7bc00!important">{{ole_title}}</h2>
+                    </div>
+                    <!-- Icon Divider-->
+                    <div class="divider-custom divider-light">
+                        <div class="divider-custom-line"></div>
+                        <div class="divider-custom-icon"><img class="img-fluid" src="{% static 'blog/assets/img/icono_thumb.png' %}" alt="Logo"></div>
+                        <div class="divider-custom-line"></div>
+                    </div>
+                    <div class="row no-gutters">
+                        {% for i in ole_news %}
+                        <div class="col-sm-12 col-md-6 col-lg-6 col-xl-3 mr-auto mb-3 rounded-lg" style="background-color:#043d6e;background-clip: padding-box;border: 5px solid transparent!important">
+                            <div class="card h-100 border-0" style="background-color:#043d6e;">
+                                <a href="{{i.news_link}}" target="_blank"><img class="card-img-top" src="{{i.image}}" style="width: 100% !important; object-fit: cover !important;height: 240px !important;" alt="Card image cap"></a>
+                                <div class="card-body">
+                                  <h5 class="card-title"><a style="color:#f7bc00!important" href="{{i.link}}" target="_blank">{{i.title}}</a></h5>
+                                </div>
+                                <div class="card-footer d-flex justify-content-end">
+                                    <small class="text-muted" style="color:#ffffff!important;"><a style="color:#ffffff!important" href="{{ole_web}}" target="_blank">Fuente: {{i.source}}</a></small>
+                                </div>
+                            </div>
+                        </div>
+                        {% endfor %}
+                    </div>
+                </div>
+            </section>
+            {% endif %}
+            {% if as_news %}
+            <section class="page-section portfolio" style="background-color: #00418b !important; padding-right: var(--bs-gutter-x, 0.75rem); padding-left: var(--bs-gutter-x, 0.75rem); padding-top: 6rem;" id="as">
+                <div class="container-fluid">
+                    <!-- Portfolio Section Heading-->
+                    <div class="text-center">
+                        <h2 class="page-section-heading mb-0 d-inline-block" style="color:#f7bc00!important">{{as_title}}</h2>
+                    </div>
+                    <!-- Icon Divider-->
+                    <div class="divider-custom divider-light">
+                        <div class="divider-custom-line"></div>
+                        <div class="divider-custom-icon"><img class="img-fluid" src="{% static 'blog/assets/img/icono_thumb.png' %}" alt="Logo"></div>
+                        <div class="divider-custom-line"></div>
+                    </div>
+                    <div class="row no-gutters">
+                        {% for i in as_news %}
+                        <div class="col-sm-12 col-md-6 col-lg-6 col-xl-3 mr-auto mb-3 rounded-lg" style="background-color:#043d6e;background-clip: padding-box;border: 5px solid transparent!important">
+                            <div class="card h-100 border-0" style="background-color:#043d6e;">
+                                <a href="{{i.news_link}}" target="_blank"><img class="card-img-top" src="{{i.image}}" style="width: 100% !important; object-fit: cover !important;height: 240px !important;" alt="Card image cap"></a>
+                                <div class="card-body">
+                                  <h5 class="card-title"><a style="color:#f7bc00!important" href="{{i.link}}" target="_blank">{{i.title}}</a></h5>
+                                </div>
+                                <div class="card-footer d-flex justify-content-end">
+                                    <small class="text-muted" style="color:#ffffff!important;"><a style="color:#ffffff!important" href="{{as_web}}" target="_blank">Fuente: {{i.source}}</a></small>
+                                </div>
+                            </div>
+                        </div>
+                        {% endfor %}
+                    </div>
+                </div>
+            </section>
+            {% endif %}
+            {% if infobae_news %}
+            <section class="page-section portfolio" style="background-color: #00418b !important; padding-right: var(--bs-gutter-x, 0.75rem); padding-left: var(--bs-gutter-x, 0.75rem); padding-top: 6rem;" id="infobae">
+                <div class="container-fluid">
+                    <!-- Portfolio Section Heading-->
+                    <div class="text-center">
+                        <h2 class="page-section-heading mb-0 d-inline-block" style="color:#f7bc00!important">{{infobae_title}}</h2>
+                    </div>
+                    <!-- Icon Divider-->
+                    <div class="divider-custom divider-light">
+                        <div class="divider-custom-line"></div>
+                        <div class="divider-custom-icon"><img class="img-fluid" src="{% static 'blog/assets/img/icono_thumb.png' %}" alt="Logo"></div>
+                        <div class="divider-custom-line"></div>
+                    </div>
+                    <div class="row no-gutters">
+                        {% for i in infobae_news %}
+                        <div class="col-sm-12 col-md-6 col-lg-6 col-xl-3 mr-auto mb-3 rounded-lg" style="background-color:#043d6e;background-clip: padding-box;border: 5px solid transparent!important">
+                            <div class="card h-100 border-0" style="background-color:#043d6e;">
+                                <a href="{{i.news_link}}" target="_blank"><img class="card-img-top" src="{{i.image}}" style="width: 100% !important; object-fit: cover !important;height: 240px !important;" alt="Card image cap"></a>
+                                <div class="card-body">
+                                  <h5 class="card-title"><a style="color:#f7bc00!important" href="{{i.link}}" target="_blank">{{i.title}}</a></h5>
+                                </div>
+                                <div class="card-footer d-flex justify-content-end">
+                                    <small class="text-muted" style="color:#ffffff!important;"><a style="color:#ffffff!important" href="{{infobae_web}}" target="_blank">Fuente: {{i.source}}</a></small>
+                                </div>
+                            </div>
+                        </div>
+                        {% endfor %}
+                    </div>
+                </div>
+            </section>
+            {% endif %}
+            {% if ln_news %}
+            <section class="page-section portfolio" style="background-color: #00418b !important; padding-right: var(--bs-gutter-x, 0.75rem); padding-left: var(--bs-gutter-x, 0.75rem); padding-top: 6rem;" id="ln">
+                <div class="container-fluid">
+                    <!-- Portfolio Section Heading-->
+                    <div class="text-center">
+                        <h2 class="page-section-heading mb-0 d-inline-block" style="color:#f7bc00!important">{{ln_title}}</h2>
+                    </div>
+                    <!-- Icon Divider-->
+                    <div class="divider-custom divider-light">
+                        <div class="divider-custom-line"></div>
+                        <div class="divider-custom-icon"><img class="img-fluid" src="{% static 'blog/assets/img/icono_thumb.png' %}" alt="Logo"></div>
+                        <div class="divider-custom-line"></div>
+                    </div>
+                    <div class="row no-gutters">
+                        {% for i in ln_news %}
+                        <div class="col-sm-12 col-md-6 col-lg-6 col-xl-3 mr-auto mb-3 rounded-lg" style="background-color:#043d6e;background-clip: padding-box;border: 5px solid transparent!important">
+                            <div class="card h-100 border-0" style="background-color:#043d6e;">
+                                <a href="{{i.news_link}}" target="_blank"><img class="card-img-top" src="{{i.image}}" style="width: 100% !important; object-fit: cover !important;height: 240px !important;" alt="Card image cap"></a>
+                                <div class="card-body">
+                                  <h5 class="card-title"><a style="color:#f7bc00!important" href="{{i.link}}" target="_blank">{{i.title}}</a></h5>
+                                </div>
+                                <div class="card-footer d-flex justify-content-end">
+                                    <small class="text-muted" style="color:#ffffff!important;"><a style="color:#ffffff!important" href="{{ln_web}}" target="_blank">Fuente: {{i.source}}</a></small>
+                                </div>
+                            </div>
+                        </div>
+                        {% endfor %}
+                    </div>
+                </div>
+            </section>
+            {% endif %}
+            {% if bv_news %}
+            <section class="page-section portfolio" style="background-color: #00418b !important; padding-right: var(--bs-gutter-x, 0.75rem); padding-left: var(--bs-gutter-x, 0.75rem); padding-top: 6rem;" id="bv">
+                <div class="container-fluid">
+                    <!-- Portfolio Section Heading-->
+                    <div class="text-center">
+                        <h2 class="page-section-heading mb-0 d-inline-block" style="color:#f7bc00!important">{{bv_title}}</h2>
+                    </div>
+                    <!-- Icon Divider-->
+                    <div class="divider-custom divider-light">
+                        <div class="divider-custom-line"></div>
+                        <div class="divider-custom-icon"><img class="img-fluid" src="{% static 'blog/assets/img/icono_thumb.png' %}" alt="Logo"></div>
+                        <div class="divider-custom-line"></div>
+                    </div>
+                    <div class="row no-gutters">
+                        {% for i in bv_news %}
+                        <div class="col-sm-12 col-md-6 col-lg-6 col-xl-3 mr-auto mb-3 rounded-lg" style="background-color:#043d6e;background-clip: padding-box;border: 5px solid transparent!important">
+                            <div class="card h-100 border-0" style="background-color:#043d6e;">
+                                <a href="{{i.news_link}}" target="_blank"><img class="card-img-top" src="{{i.image}}" style="width: 100% !important; object-fit: cover !important;height: 240px !important;" alt="Card image cap"></a>
+                                <div class="card-body">
+                                  <h5 class="card-title"><a style="color:#f7bc00!important" href="{{i.link}}" target="_blank">{{i.title}}</a></h5>
+                                </div>
+                                <div class="card-footer d-flex justify-content-end">
+                                    <small class="text-muted" style="color:#ffffff!important;"><a style="color:#ffffff!important" href="{{bv_web}}" target="_blank">Fuente: {{i.source}}</a></small>
+                                </div>
+                            </div>
+                        </div>
+                        {% endfor %}
+                    </div>
+                </div>
+            </section>
+            {% endif %}
+            {% if mbtv_videos %}
+            <section class="page-section portfolio" style="background-color: #00418b !important; padding-right: var(--bs-gutter-x, 0.75rem); padding-left: var(--bs-gutter-x, 0.75rem); padding-top: 6rem;" id="mbtv-videos">
+                <div class="container-fluid">
+                    <!-- Portfolio Section Heading-->
+                    <div class="text-center">
+                        <h2 class="page-section-heading mb-0 d-inline-block" style="color:#f7bc00!important">{{mbtv_title}}</h2>
+                    </div>
+                    <!-- Icon Divider-->
+                    <div class="divider-custom divider-light">
+                        <div class="divider-custom-line"></div>
+                        <div class="divider-custom-icon"><img class="img-fluid" src="{% static 'blog/assets/img/icono_thumb.png' %}" alt="Logo"></div>
+                        <div class="divider-custom-line"></div>
+                    </div>
+                    <div class="row no-gutters">
+                        {% for i in mbtv_videos %}
+                        <div class="col-sm-12 col-md-6 col-lg-6 col-xl-3 mr-auto mb-3 rounded-lg" style="background-color:#043d6e;background-clip: padding-box;border: 5px solid transparent!important">
+                            <div class="card h-100 border-0" style="background-color:#043d6e;">
+                                <iframe class="embed-responsive embed-responsive-16by9 embed-responsive-item rounded-top" height="280" frameborder="0" src="{{i.embed}}" title="YouTube video player" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                                <div class="card-body">
+                                  <h5 class="card-title"><a style="color:#f7bc00!important" href="{{i.link}}" target="_blank">{{i.title}}</a></h5>
+                                </div>
+                                <div class="card-footer d-flex justify-content-end">
+                                    <small class="text-muted" style="color:#ffffff!important;"><a style="color:#ffffff!important" href="{{mbtv_channel}}" target="_blank">Canal: {{mbtv_title}}</a></small>
+                                </div>
+                            </div>
+                        </div>
+                        {% endfor %}
+                    </div>
+                </div>
+            </section>
+            {% endif %}
+            {% if ax_videos %}
+            <section class="page-section portfolio" style="background-color: #00418b !important; padding-right: var(--bs-gutter-x, 0.75rem); padding-left: var(--bs-gutter-x, 0.75rem); padding-top: 6rem;" id="ax-videos">
+                <div class="container-fluid">
+                    <!-- Portfolio Section Heading-->
+                    <div class="text-center">
+                        <h2 class="page-section-heading mb-0 d-inline-block" style="color:#f7bc00!important">{{ax_title}}</h2>
+                    </div>
+                    <!-- Icon Divider-->
+                    <div class="divider-custom divider-light">
+                        <div class="divider-custom-line"></div>
+                        <div class="divider-custom-icon"><img class="img-fluid" src="{% static 'blog/assets/img/icono_thumb.png' %}" alt="Logo"></div>
+                        <div class="divider-custom-line"></div>
+                    </div>
+                    <div class="row no-gutters">
+                        {% for i in ax_videos %}
+                        <div class="col-sm-12 col-md-6 col-lg-6 col-xl-3 mr-auto mb-3 rounded-lg" style="background-color:#043d6e;background-clip: padding-box;border: 5px solid transparent!important">
+                            <div class="card h-100 border-0" style="background-color:#043d6e;">
+                                <iframe class="embed-responsive embed-responsive-16by9 embed-responsive-item rounded-top" height="280" frameborder="0" src="{{i.embed}}" title="YouTube video player" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                                <div class="card-body">
+                                  <h5 class="card-title"><a style="color:#f7bc00!important" href="{{i.link}}" target="_blank">{{i.title}}</a></h5>
+                                </div>
+                                <div class="card-footer d-flex justify-content-end">
+                                    <small class="text-muted" style="color:#ffffff!important;"><a style="color:#ffffff!important" href="{{ax_channel}}" target="_blank">Canal: {{ax_title}}</a></small>
+                                </div>
+                            </div>
+                        </div>
+                        {% endfor %}
+                    </div>
+                </div>
+            </section>
+            {% endif %}
+            {% if cabj_videos %}
+            <section class="page-section portfolio" style="background-color: #00418b !important; padding-right: var(--bs-gutter-x, 0.75rem); padding-left: var(--bs-gutter-x, 0.75rem); padding-top: 6rem;" id="cabj-videos">
+                <div class="container-fluid">
+                    <!-- Portfolio Section Heading-->
+                    <div class="text-center">
+                        <h2 class="page-section-heading mb-0 d-inline-block" style="color:#f7bc00!important">{{cabj_title}}</h2>
+                    </div>
+                    <!-- Icon Divider-->
+                    <div class="divider-custom divider-light">
+                        <div class="divider-custom-line"></div>
+                        <div class="divider-custom-icon"><img class="img-fluid" src="{% static 'blog/assets/img/icono_thumb.png' %}" alt="Logo"></div>
+                        <div class="divider-custom-line"></div>
+                    </div>
+                    <div class="row no-gutters">
+                        {% for i in cabj_videos %}
+                        <div class="col-sm-12 col-md-6 col-lg-6 col-xl-3 mr-auto mb-3 rounded-lg" style="background-color:#043d6e;background-clip: padding-box;border: 5px solid transparent!important">
+                            <div class="card h-100 border-0" style="background-color:#043d6e;">
+                                <iframe class="embed-responsive embed-responsive-16by9 embed-responsive-item rounded-top" height="280" frameborder="0" src="{{i.embed}}" title="YouTube video player" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                                <div class="card-body">
+                                  <h5 class="card-title"><a style="color:#f7bc00!important" href="{{i.link}}" target="_blank">{{i.title}}</a></h5>
+                                </div>
+                                <div class="card-footer d-flex justify-content-end">
+                                    <small class="text-muted" style="color:#ffffff!important;"><a style="color:#ffffff!important" href="{{cabj_channel}}" target="_blank">Canal: {{cabj_title}}</a></small>
+                                </div>
+                            </div>
+                        </div>
+                        {% endfor %}
+                    </div>
+                </div>
+            </section>
+            {% endif %}
+            {% if ax2_videos %}
+            <section class="page-section portfolio" style="background-color: #00418b !important; padding-right: var(--bs-gutter-x, 0.75rem); padding-left: var(--bs-gutter-x, 0.75rem); padding-top: 6rem;" id="ax2-videos">
+                <div class="container-fluid">
+                    <!-- Portfolio Section Heading-->
+                    <div class="text-center">
+                        <h2 class="page-section-heading mb-0 d-inline-block" style="color:#f7bc00!important">{{ax2_title}}</h2>
+                    </div>
+                    <!-- Icon Divider-->
+                    <div class="divider-custom divider-light">
+                        <div class="divider-custom-line"></div>
+                        <div class="divider-custom-icon"><img class="img-fluid" src="{% static 'blog/assets/img/icono_thumb.png' %}" alt="Logo"></div>
+                        <div class="divider-custom-line"></div>
+                    </div>
+                    <div class="row no-gutters">
+                        {% for i in ax2_videos %}
+                        <div class="col-sm-12 col-md-6 col-lg-6 col-xl-3 mr-auto mb-3 rounded-lg" style="background-color:#043d6e;background-clip: padding-box;border: 5px solid transparent!important">
+                            <div class="card h-100 border-0" style="background-color:#043d6e;">
+                                <iframe class="embed-responsive embed-responsive-16by9 embed-responsive-item rounded-top" height="280" frameborder="0" src="{{i.embed}}" title="YouTube video player" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                                <div class="card-body">
+                                  <h5 class="card-title"><a style="color:#f7bc00!important" href="{{i.link}}" target="_blank">{{i.title}}</a></h5>
+                                </div>
+                                <div class="card-footer d-flex justify-content-end">
+                                    <small class="text-muted" style="color:#ffffff!important;"><a style="color:#ffffff!important" href="{{ax2_channel}}" target="_blank">Canal: {{ax2_title}}</a></small>
+                                </div>
+                            </div>
+                        </div>
+                        {% endfor %}
+                    </div>
+                </div>
+            </section>
+            {% endif %}
+            {% if ta_videos %}
+            <section class="page-section portfolio" style="background-color: #00418b !important; padding-right: var(--bs-gutter-x, 0.75rem); padding-left: var(--bs-gutter-x, 0.75rem); padding-top: 6rem;" id="ta-videos">
+                <div class="container-fluid">
+                    <!-- Portfolio Section Heading-->
+                    <div class="text-center">
+                        <h2 class="page-section-heading mb-0 d-inline-block" style="color:#f7bc00!important">{{ta_title}}</h2>
+                    </div>
+                    <!-- Icon Divider-->
+                    <div class="divider-custom divider-light">
+                        <div class="divider-custom-line"></div>
+                        <div class="divider-custom-icon"><img class="img-fluid" src="{% static 'blog/assets/img/icono_thumb.png' %}" alt="Logo"></div>
+                        <div class="divider-custom-line"></div>
+                    </div>
+                    <div class="row no-gutters">
+                        {% for i in ta_videos %}
+                        <div class="col-sm-12 col-md-6 col-lg-6 col-xl-3 mr-auto mb-3 rounded-lg" style="background-color:#043d6e;background-clip: padding-box;border: 5px solid transparent!important">
+                            <div class="card h-100 border-0" style="background-color:#043d6e;">
+                                <iframe class="embed-responsive embed-responsive-16by9 embed-responsive-item rounded-top" height="280" frameborder="0" src="{{i.embed}}" title="YouTube video player" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                                <div class="card-body">
+                                  <h5 class="card-title"><a style="color:#f7bc00!important" href="{{i.link}}" target="_blank">{{i.title}}</a></h5>
+                                </div>
+                                <div class="card-footer d-flex justify-content-end">
+                                    <small class="text-muted" style="color:#ffffff!important;"><a style="color:#ffffff!important" href="{{ta_channel}}" target="_blank">Canal: {{ta_title}}</a></small>
+                                </div>
+                            </div>
+                        </div>
+                        {% endfor %}
+                    </div>
+                </div>
+            </section>
+            {% endif %}
+            {% if esdb_videos %}
+            <section class="page-section portfolio" style="background-color: #00418b !important; padding-right: var(--bs-gutter-x, 0.75rem); padding-left: var(--bs-gutter-x, 0.75rem); padding-top: 6rem;" id="esdb-videos">
+                <div class="container-fluid">
+                    <!-- Portfolio Section Heading-->
+                    <div class="text-center">
+                        <h2 class="page-section-heading mb-0 d-inline-block" style="color:#f7bc00!important">{{esdb_title}}</h2>
+                    </div>
+                    <!-- Icon Divider-->
+                    <div class="divider-custom divider-light">
+                        <div class="divider-custom-line"></div>
+                        <div class="divider-custom-icon"><img class="img-fluid" src="{% static 'blog/assets/img/icono_thumb.png' %}" alt="Logo"></div>
+                        <div class="divider-custom-line"></div>
+                    </div>
+                    <div class="row no-gutters">
+                        {% for i in esdb_videos %}
+                        <div class="col-sm-12 col-md-6 col-lg-6 col-xl-3 mr-auto mb-3 rounded-lg" style="background-color:#043d6e;background-clip: padding-box;border: 5px solid transparent!important">
+                            <div class="card h-100 border-0" style="background-color:#043d6e;">
+                                <iframe class="embed-responsive embed-responsive-16by9 embed-responsive-item rounded-top" height="280" frameborder="0" src="{{i.embed}}" title="YouTube video player" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                                <div class="card-body">
+                                  <h5 class="card-title"><a style="color:#f7bc00!important" href="{{i.link}}" target="_blank">{{i.title}}</a></h5>
+                                </div>
+                                <div class="card-footer d-flex justify-content-end">
+                                    <small class="text-muted" style="color:#ffffff!important;"><a style="color:#ffffff!important" href="{{esdb_channel}}" target="_blank">Canal: Fútbol de los Grandes</a></small>
+                                </div>
+                            </div>
+                        </div>
+                        {% endfor %}
+                    </div>
+                </div>
+            </section>
+            {% endif %}
+        </div>
+        <footer class="footer text-center" style="background-color:#043d6e!important" id="contact">
+            <div class="container pt-5">
+                <div class="row">
+                    <!-- Footer Location-->
+                    <div class="col-lg-4 mb-5 mb-lg-0">
+                        <h4 class="mb-4 text-center text-white">Acerca</h4>
+                        <p class="pre-wrap lead mb-0 text-center text-white">Blog Xeneize te trae las últimas noticias del más grande!!!</p>
+                    </div>
+                    <!-- Footer Social Icons-->
+                    <div class="col-lg-4 mb-5 mb-lg-0">
+                        <h4 class="mb-4 text-white">Seguinos en las redes</h4><a class="btn btn-outline-light btn-social mx-1" href="https://es-la.facebook.com/" target="_blank"><i class="fab fa-fw fa-facebook" aria-hidden="true"></i></a><a class="btn btn-outline-light btn-social mx-1" href="https://www.instagram.com/?hl=es-la" target="_blank"><i class="fab fa-fw fa-instagram"></i></a><a class="btn btn-outline-light btn-social mx-1" href="https://twitter.com/" target="_blank"><i i class="fab fa-fw fa-twitter" aria-hidden="true"></i></a>
+                    </div>
+                    <!-- Footer About Text-->
+                    <div class="col-lg-4">
+                        <h4 class="mb-4 text-white">Contacto</h4>
+                        <p class="pre-wrap lead mb-0 text-center text-white">Autor: Nicolás Ghiliasa<br>Email: nghiliasa@gmail.com<br>LinkedIn: <a style="color: #f7bc00 !important;" href="https://www.linkedin.com/in/nghiliasa/" target="_blank">Ir al perfil</a>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </footer>
+        <!-- Copyright Section-->
+        <section class="copyright py-4 text-center text-white" style="background-color:#043d6e!important">
+            <div class="container"><small class="pre-wrap">Copyright © BlogXeneize 2022 </small></div>
+        </section>
+        <!-- Scroll to Top Button (Only visible on small and extra-small screen sizes)-->
+        <div class="scroll-to-top d-lg-none position-fixed"><a class="js-scroll-trigger d-block text-center text-white rounded" href="#page-top"><i class="fa fa-chevron-up"></i></a></div>
+        <!-- Bootstrap core JS-->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+        <!-- Core theme JS-->
+        <script src="{% static 'prueba/css/scripts.js' %}"></script>
+    </body>
+</html>
