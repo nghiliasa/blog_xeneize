@@ -465,20 +465,23 @@ def index(request):
         tyc_a_labels = tyc_section[0].find_all('a', 'card-thumbnail rat16x9')
         tyc_clock = 1
         for label in tyc_a_labels:
-            news = {}
-            news_link = 'https://www.tycsports.com' + label.attrs.get('href')
-            if tyc_clock == 1:
-                image = label.find('img', attrs={'class': None}).attrs.get('src')
-            else:
-                image = label.find('img', attrs={'class': None}).attrs.get('data-src')
-            title = label.find('img', attrs={'class': None}).attrs.get('title')
-            news['id'] = tyc_clock
-            news['news_link'] = news_link
-            news['image'] = image
-            news['title'] = title
-            news['source'] = tyc_title
-            tyc_news.append(news)
-            tyc_clock += 1
+            try:
+                news = {}
+                news_link = 'https://www.tycsports.com' + label.attrs.get('href')
+                if tyc_clock == 1:
+                    image = label.find('img', attrs={'class': None}).attrs.get('src')
+                else:
+                    image = label.find('img', attrs={'class': None}).attrs.get('data-src')
+                title = label.find('img', attrs={'class': None}).attrs.get('title')
+                news['id'] = tyc_clock
+                news['news_link'] = news_link
+                news['image'] = image
+                news['title'] = title
+                news['source'] = tyc_title
+                tyc_news.append(news)
+                tyc_clock += 1
+            except:
+                pass
 
     except:
         pass
@@ -506,17 +509,20 @@ def index(request):
         ole_articles = ole_articles_1 + ole_articles_2 + ole_articles_base_3
         ole_clock = 1
         for article in ole_articles:
-            news = {}
-            news_link = 'https://www.ole.com.ar' + article.find_all('a')[0].attrs.get('href')
-            image = article.find_all('a')[0].find_next('img').attrs.get('src')
-            title = article.find_next('div', 'entry-data').find_next('h2', 'entry-title').find_next('a').get_text()
-            news['id'] = ole_clock
-            news['news_link'] = news_link
-            news['image'] = image
-            news['title'] = title
-            news['source'] = ole_title
-            ole_news.append(news)
-            ole_clock += 1
+            try:
+                news = {}
+                news_link = 'https://www.ole.com.ar' + article.find_all('a')[0].attrs.get('href')
+                image = article.find_all('a')[0].find_next('img').attrs.get('src')
+                title = article.find_next('div', 'entry-data').find_next('h2', 'entry-title').find_next('a').get_text()
+                news['id'] = ole_clock
+                news['news_link'] = news_link
+                news['image'] = image
+                news['title'] = title
+                news['source'] = ole_title
+                ole_news.append(news)
+                ole_clock += 1
+            except:
+                pass
 
         ole_news.pop(3)
         ole_news.pop(3)
@@ -534,19 +540,22 @@ def index(request):
         as_articles = as_soup.find_all('article', 's s--v')
         as_clock = 1
         for article in as_articles:
-            news = {}
-            news_link = 'https://argentina.as.com' + article.find_next('figure', 'mm s__mm').find_next('a').attrs.get('href')
-            image = article.find_next('figure', 'mm s__mm').find_next('img').attrs.get('src')
-            if image == 'https://as01.epimg.net/t.gif':
-                image = article.find_next('figure', 'mm s__mm').find_next('img').attrs.get('srcset')
-            title = article.find_next('h2', 's__tl').find_next('a').get_text()
-            news['id'] = as_clock
-            news['news_link'] = news_link
-            news['image'] = image
-            news['title'] = title
-            news['source'] = as_title
-            as_news.append(news)
-            as_clock += 1
+            try:
+                news = {}
+                news_link = article.find_next('figure', 'mm s__mm').find_next('a').attrs.get('href')
+                image = article.find_next('figure', 'mm s__mm').find_next('img').attrs.get('src')
+                if image == 'https://as01.epimg.net/t.gif':
+                    image = article.find_next('figure', 'mm s__mm').find_next('img').attrs.get('srcset')
+                title = article.find_next('h2', 's__tl').find_next('a').get_text()
+                news['id'] = as_clock
+                news['news_link'] = news_link
+                news['image'] = image
+                news['title'] = title
+                news['source'] = as_title
+                as_news.append(news)
+                as_clock += 1
+            except:
+                pass
 
     except:
         pass
