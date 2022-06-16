@@ -320,8 +320,8 @@ def index(request):
     # ----------------Fuente Alma Xeneize------------------
 
     ax_title = 'Alma Xeneize' 
-    ax_channel = 'https://www.youtube.com/c/ALMAXENEIZEradio'
-    ax_videos = youtube('channel_id', 'UCx7rTQEwFDvSBxYjo7rmdPA')
+    ax_channel = 'https://www.youtube.com/channel/UC1a6YGcZdpPkXY7UxqXC4pw'
+    ax_videos = youtube('channel_id', 'UC1a6YGcZdpPkXY7UxqXC4pw')
     
     # ----------------Fuente Club Atlético Boca Juniors------------------
 
@@ -335,18 +335,18 @@ def index(request):
     ax2_channel = 'https://www.youtube.com/channel/UCZFhYCVsAzEXdmJRPiKdMaA'
     ax2_videos = youtube('channel_id', 'UCZFhYCVsAzEXdmJRPiKdMaA')
     
-    # ----------------Fuente El Show de Boca (con Roberto Leto)------------------
+    # # ----------------Fuente El Show de Boca (con Roberto Leto)------------------
 
-    esdb_title = 'El Show de Boca (con Roberto Leto)' 
-    esdb_channel = 'https://www.youtube.com/channel/UCigMtQPA1eB3pAa1ri78syg'
-    esdb_videos_list = youtube('channel_id', 'UCigMtQPA1eB3pAa1ri78syg')
-    esdb_videos = []
-    for video in esdb_videos_list:
-        string = video['title']
-        if "EL SHOW DE #BOCA CON ROBERTO LETO" in string:
-            esdb_videos.append(video)
-        else:
-            pass
+    # esdb_title = 'El Show de Boca (con Roberto Leto)' 
+    # esdb_channel = 'https://www.youtube.com/channel/UCigMtQPA1eB3pAa1ri78syg'
+    # esdb_videos_list = youtube('channel_id', 'UCigMtQPA1eB3pAa1ri78syg')
+    # esdb_videos = []
+    # for video in esdb_videos_list:
+    #     string = video['title']
+    #     if "EL SHOW DE #BOCA CON ROBERTO LETO" in string:
+    #         esdb_videos.append(video)
+    #     else:
+    #         pass
     
     # ----------------Fuente Tato Aguilera------------------
 
@@ -363,25 +363,21 @@ def index(request):
         last_videos.append(ax_videos[0])
         last_videos.append(cabj_videos[0])
         last_videos.append(ax2_videos[0])
-        last_videos.append(esdb_videos[0])
         last_videos.append(ta_videos[0])
         last_videos.append(mbtv_videos[1])
         last_videos.append(ax_videos[1])
         last_videos.append(cabj_videos[1])
         last_videos.append(ax2_videos[1])
-        last_videos.append(esdb_videos[1])
         last_videos.append(ta_videos[1])
         last_videos.append(mbtv_videos[2])
         last_videos.append(ax_videos[2])
         last_videos.append(cabj_videos[2])
         last_videos.append(ax2_videos[2])
-        last_videos.append(esdb_videos[2])
         last_videos.append(ta_videos[2])
         last_videos.append(mbtv_videos[3])
         last_videos.append(ax_videos[3])
         last_videos.append(cabj_videos[3])
         last_videos.append(ax2_videos[3])
-        last_videos.append(esdb_videos[3])
         last_videos.append(ta_videos[3])
         last_videos.append(mbtv_videos[4])
         last_videos.append(ax_videos[4])
@@ -461,9 +457,6 @@ def index(request):
         "ax2_title": ax2_title,
         "ax2_channel": ax2_channel,
         "ax2_videos": ax2_videos,
-        "esdb_title": esdb_title,
-        "esdb_channel": esdb_channel,
-        "esdb_videos": esdb_videos,
         "ta_title": ta_title,
         "ta_channel": ta_channel,
         "ta_videos": ta_videos,
